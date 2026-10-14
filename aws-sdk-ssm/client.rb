@@ -188,7 +188,7 @@ module Aws
         end
         Responses::AddTagsToResource.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.add_tags_to_resource_error_data(e.code, e.body))
       end
 
       def associate_ops_item_related_item(params = {}, options = {})
@@ -204,7 +204,7 @@ module Aws
         end
         Responses::AssociateOpsItemRelatedItem.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.associate_ops_item_related_item_error_data(e.code, e.body))
       end
 
       def cancel_command(params = {}, options = {})
@@ -220,7 +220,7 @@ module Aws
         end
         Responses::CancelCommand.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.cancel_command_error_data(e.code, e.body))
       end
 
       def cancel_maintenance_window_execution(params = {}, options = {})
@@ -236,7 +236,7 @@ module Aws
         end
         Responses::CancelMaintenanceWindowExecution.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.cancel_maintenance_window_execution_error_data(e.code, e.body))
       end
 
       def create_activation(params = {}, options = {})
@@ -252,7 +252,7 @@ module Aws
         end
         Responses::CreateActivation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_activation_error_data(e.code, e.body))
       end
 
       def create_association(params = {}, options = {})
@@ -268,7 +268,7 @@ module Aws
         end
         Responses::CreateAssociation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_association_error_data(e.code, e.body))
       end
 
       def create_association_batch(params = {}, options = {})
@@ -284,7 +284,7 @@ module Aws
         end
         Responses::CreateAssociationBatch.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_association_batch_error_data(e.code, e.body))
       end
 
       def create_cloud_connector(params = {}, options = {})
@@ -300,7 +300,7 @@ module Aws
         end
         Responses::CreateCloudConnector.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_cloud_connector_error_data(e.code, e.body))
       end
 
       def create_document(params = {}, options = {})
@@ -316,7 +316,7 @@ module Aws
         end
         Responses::CreateDocument.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_document_error_data(e.code, e.body))
       end
 
       def create_maintenance_window(params = {}, options = {})
@@ -332,7 +332,7 @@ module Aws
         end
         Responses::CreateMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_maintenance_window_error_data(e.code, e.body))
       end
 
       def create_ops_item(params = {}, options = {})
@@ -348,7 +348,7 @@ module Aws
         end
         Responses::CreateOpsItem.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_ops_item_error_data(e.code, e.body))
       end
 
       def create_ops_metadata(params = {}, options = {})
@@ -364,7 +364,7 @@ module Aws
         end
         Responses::CreateOpsMetadata.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_ops_metadata_error_data(e.code, e.body))
       end
 
       def create_patch_baseline(params = {}, options = {})
@@ -380,7 +380,7 @@ module Aws
         end
         Responses::CreatePatchBaseline.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_patch_baseline_error_data(e.code, e.body))
       end
 
       def create_resource_data_sync(params = {}, options = {})
@@ -396,7 +396,7 @@ module Aws
         end
         Responses::CreateResourceDataSync.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.create_resource_data_sync_error_data(e.code, e.body))
       end
 
       def delete_activation(params = {}, options = {})
@@ -412,7 +412,7 @@ module Aws
         end
         Responses::DeleteActivation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_activation_error_data(e.code, e.body))
       end
 
       def delete_association(params = {}, options = {})
@@ -428,7 +428,7 @@ module Aws
         end
         Responses::DeleteAssociation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_association_error_data(e.code, e.body))
       end
 
       def delete_cloud_connector(params = {}, options = {})
@@ -444,7 +444,7 @@ module Aws
         end
         Responses::DeleteCloudConnector.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_cloud_connector_error_data(e.code, e.body))
       end
 
       def delete_document(params = {}, options = {})
@@ -460,7 +460,7 @@ module Aws
         end
         Responses::DeleteDocument.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_document_error_data(e.code, e.body))
       end
 
       def delete_inventory(params = {}, options = {})
@@ -476,7 +476,7 @@ module Aws
         end
         Responses::DeleteInventory.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_inventory_error_data(e.code, e.body))
       end
 
       def delete_maintenance_window(params = {}, options = {})
@@ -492,7 +492,7 @@ module Aws
         end
         Responses::DeleteMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_maintenance_window_error_data(e.code, e.body))
       end
 
       def delete_ops_item(params = {}, options = {})
@@ -508,7 +508,7 @@ module Aws
         end
         Responses::DeleteOpsItem.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_ops_item_error_data(e.code, e.body))
       end
 
       def delete_ops_metadata(params = {}, options = {})
@@ -524,7 +524,7 @@ module Aws
         end
         Responses::DeleteOpsMetadata.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_ops_metadata_error_data(e.code, e.body))
       end
 
       def delete_parameter(params = {}, options = {})
@@ -540,7 +540,7 @@ module Aws
         end
         Responses::DeleteParameter.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_parameter_error_data(e.code, e.body))
       end
 
       def delete_parameters(params = {}, options = {})
@@ -556,7 +556,7 @@ module Aws
         end
         Responses::DeleteParameters.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_parameters_error_data(e.code, e.body))
       end
 
       def delete_patch_baseline(params = {}, options = {})
@@ -572,7 +572,7 @@ module Aws
         end
         Responses::DeletePatchBaseline.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_patch_baseline_error_data(e.code, e.body))
       end
 
       def delete_resource_data_sync(params = {}, options = {})
@@ -588,7 +588,7 @@ module Aws
         end
         Responses::DeleteResourceDataSync.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_resource_data_sync_error_data(e.code, e.body))
       end
 
       def delete_resource_policy(params = {}, options = {})
@@ -604,7 +604,7 @@ module Aws
         end
         Responses::DeleteResourcePolicy.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.delete_resource_policy_error_data(e.code, e.body))
       end
 
       def deregister_managed_instance(params = {}, options = {})
@@ -620,7 +620,7 @@ module Aws
         end
         Responses::DeregisterManagedInstance.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.deregister_managed_instance_error_data(e.code, e.body))
       end
 
       def deregister_patch_baseline_for_patch_group(params = {}, options = {})
@@ -636,7 +636,7 @@ module Aws
         end
         Responses::DeregisterPatchBaselineForPatchGroup.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.deregister_patch_baseline_for_patch_group_error_data(e.code, e.body))
       end
 
       def deregister_target_from_maintenance_window(params = {}, options = {})
@@ -652,7 +652,7 @@ module Aws
         end
         Responses::DeregisterTargetFromMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.deregister_target_from_maintenance_window_error_data(e.code, e.body))
       end
 
       def deregister_task_from_maintenance_window(params = {}, options = {})
@@ -668,7 +668,7 @@ module Aws
         end
         Responses::DeregisterTaskFromMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.deregister_task_from_maintenance_window_error_data(e.code, e.body))
       end
 
       def describe_activations(params = {}, options = {})
@@ -684,7 +684,7 @@ module Aws
         end
         Responses::DescribeActivations.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_activations_error_data(e.code, e.body))
       end
 
       def describe_association(params = {}, options = {})
@@ -700,7 +700,7 @@ module Aws
         end
         Responses::DescribeAssociation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_association_error_data(e.code, e.body))
       end
 
       def describe_association_execution_targets(params = {}, options = {})
@@ -716,7 +716,7 @@ module Aws
         end
         Responses::DescribeAssociationExecutionTargets.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_association_execution_targets_error_data(e.code, e.body))
       end
 
       def describe_association_executions(params = {}, options = {})
@@ -732,7 +732,7 @@ module Aws
         end
         Responses::DescribeAssociationExecutions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_association_executions_error_data(e.code, e.body))
       end
 
       def describe_automation_executions(params = {}, options = {})
@@ -748,7 +748,7 @@ module Aws
         end
         Responses::DescribeAutomationExecutions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_automation_executions_error_data(e.code, e.body))
       end
 
       def describe_automation_step_executions(params = {}, options = {})
@@ -764,7 +764,7 @@ module Aws
         end
         Responses::DescribeAutomationStepExecutions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_automation_step_executions_error_data(e.code, e.body))
       end
 
       def describe_available_patches(params = {}, options = {})
@@ -780,7 +780,7 @@ module Aws
         end
         Responses::DescribeAvailablePatches.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_available_patches_error_data(e.code, e.body))
       end
 
       def describe_document(params = {}, options = {})
@@ -796,7 +796,7 @@ module Aws
         end
         Responses::DescribeDocument.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_document_error_data(e.code, e.body))
       end
 
       def describe_document_permission(params = {}, options = {})
@@ -812,7 +812,7 @@ module Aws
         end
         Responses::DescribeDocumentPermission.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_document_permission_error_data(e.code, e.body))
       end
 
       def describe_effective_instance_associations(params = {}, options = {})
@@ -828,7 +828,7 @@ module Aws
         end
         Responses::DescribeEffectiveInstanceAssociations.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_effective_instance_associations_error_data(e.code, e.body))
       end
 
       def describe_effective_patches_for_patch_baseline(params = {}, options = {})
@@ -844,7 +844,7 @@ module Aws
         end
         Responses::DescribeEffectivePatchesForPatchBaseline.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_effective_patches_for_patch_baseline_error_data(e.code, e.body))
       end
 
       def describe_instance_associations_status(params = {}, options = {})
@@ -860,7 +860,7 @@ module Aws
         end
         Responses::DescribeInstanceAssociationsStatus.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_associations_status_error_data(e.code, e.body))
       end
 
       def describe_instance_information(params = {}, options = {})
@@ -876,7 +876,7 @@ module Aws
         end
         Responses::DescribeInstanceInformation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_information_error_data(e.code, e.body))
       end
 
       def describe_instance_patch_states(params = {}, options = {})
@@ -892,7 +892,7 @@ module Aws
         end
         Responses::DescribeInstancePatchStates.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_patch_states_error_data(e.code, e.body))
       end
 
       def describe_instance_patch_states_for_patch_group(params = {}, options = {})
@@ -908,7 +908,7 @@ module Aws
         end
         Responses::DescribeInstancePatchStatesForPatchGroup.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_patch_states_for_patch_group_error_data(e.code, e.body))
       end
 
       def describe_instance_patches(params = {}, options = {})
@@ -924,7 +924,7 @@ module Aws
         end
         Responses::DescribeInstancePatches.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_patches_error_data(e.code, e.body))
       end
 
       def describe_instance_properties(params = {}, options = {})
@@ -940,7 +940,7 @@ module Aws
         end
         Responses::DescribeInstanceProperties.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_properties_error_data(e.code, e.body))
       end
 
       def describe_inventory_deletions(params = {}, options = {})
@@ -956,7 +956,7 @@ module Aws
         end
         Responses::DescribeInventoryDeletions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_inventory_deletions_error_data(e.code, e.body))
       end
 
       def describe_maintenance_window_execution_task_invocations(params = {}, options = {})
@@ -972,7 +972,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindowExecutionTaskInvocations.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_execution_task_invocations_error_data(e.code, e.body))
       end
 
       def describe_maintenance_window_execution_tasks(params = {}, options = {})
@@ -988,7 +988,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindowExecutionTasks.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_execution_tasks_error_data(e.code, e.body))
       end
 
       def describe_maintenance_window_executions(params = {}, options = {})
@@ -1004,7 +1004,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindowExecutions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_executions_error_data(e.code, e.body))
       end
 
       def describe_maintenance_window_schedule(params = {}, options = {})
@@ -1020,7 +1020,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindowSchedule.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_schedule_error_data(e.code, e.body))
       end
 
       def describe_maintenance_window_targets(params = {}, options = {})
@@ -1036,7 +1036,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindowTargets.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_targets_error_data(e.code, e.body))
       end
 
       def describe_maintenance_window_tasks(params = {}, options = {})
@@ -1052,7 +1052,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindowTasks.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_tasks_error_data(e.code, e.body))
       end
 
       def describe_maintenance_windows(params = {}, options = {})
@@ -1068,7 +1068,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindows.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_windows_error_data(e.code, e.body))
       end
 
       def describe_maintenance_windows_for_target(params = {}, options = {})
@@ -1084,7 +1084,7 @@ module Aws
         end
         Responses::DescribeMaintenanceWindowsForTarget.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_windows_for_target_error_data(e.code, e.body))
       end
 
       def describe_ops_items(params = {}, options = {})
@@ -1100,7 +1100,7 @@ module Aws
         end
         Responses::DescribeOpsItems.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_ops_items_error_data(e.code, e.body))
       end
 
       def describe_parameters(params = {}, options = {})
@@ -1116,7 +1116,7 @@ module Aws
         end
         Responses::DescribeParameters.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_parameters_error_data(e.code, e.body))
       end
 
       def describe_patch_baselines(params = {}, options = {})
@@ -1132,7 +1132,7 @@ module Aws
         end
         Responses::DescribePatchBaselines.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_patch_baselines_error_data(e.code, e.body))
       end
 
       def describe_patch_group_state(params = {}, options = {})
@@ -1148,7 +1148,7 @@ module Aws
         end
         Responses::DescribePatchGroupState.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_patch_group_state_error_data(e.code, e.body))
       end
 
       def describe_patch_groups(params = {}, options = {})
@@ -1164,7 +1164,7 @@ module Aws
         end
         Responses::DescribePatchGroups.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_patch_groups_error_data(e.code, e.body))
       end
 
       def describe_patch_properties(params = {}, options = {})
@@ -1180,7 +1180,7 @@ module Aws
         end
         Responses::DescribePatchProperties.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_patch_properties_error_data(e.code, e.body))
       end
 
       def describe_sessions(params = {}, options = {})
@@ -1196,7 +1196,7 @@ module Aws
         end
         Responses::DescribeSessions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.describe_sessions_error_data(e.code, e.body))
       end
 
       def disassociate_ops_item_related_item(params = {}, options = {})
@@ -1212,7 +1212,7 @@ module Aws
         end
         Responses::DisassociateOpsItemRelatedItem.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.disassociate_ops_item_related_item_error_data(e.code, e.body))
       end
 
       def get_access_token(params = {}, options = {})
@@ -1228,7 +1228,7 @@ module Aws
         end
         Responses::GetAccessToken.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_access_token_error_data(e.code, e.body))
       end
 
       def get_automation_execution(params = {}, options = {})
@@ -1244,7 +1244,7 @@ module Aws
         end
         Responses::GetAutomationExecution.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_automation_execution_error_data(e.code, e.body))
       end
 
       def get_calendar_state(params = {}, options = {})
@@ -1260,7 +1260,7 @@ module Aws
         end
         Responses::GetCalendarState.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_calendar_state_error_data(e.code, e.body))
       end
 
       def get_cloud_connector(params = {}, options = {})
@@ -1276,7 +1276,7 @@ module Aws
         end
         Responses::GetCloudConnector.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_cloud_connector_error_data(e.code, e.body))
       end
 
       def get_command_invocation(params = {}, options = {})
@@ -1292,7 +1292,7 @@ module Aws
         end
         Responses::GetCommandInvocation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_command_invocation_error_data(e.code, e.body))
       end
 
       def get_connection_status(params = {}, options = {})
@@ -1308,7 +1308,7 @@ module Aws
         end
         Responses::GetConnectionStatus.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_connection_status_error_data(e.code, e.body))
       end
 
       def get_default_patch_baseline(params = {}, options = {})
@@ -1324,7 +1324,7 @@ module Aws
         end
         Responses::GetDefaultPatchBaseline.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_default_patch_baseline_error_data(e.code, e.body))
       end
 
       def get_deployable_patch_snapshot_for_instance(params = {}, options = {})
@@ -1340,7 +1340,7 @@ module Aws
         end
         Responses::GetDeployablePatchSnapshotForInstance.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_deployable_patch_snapshot_for_instance_error_data(e.code, e.body))
       end
 
       def get_document(params = {}, options = {})
@@ -1356,7 +1356,7 @@ module Aws
         end
         Responses::GetDocument.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_document_error_data(e.code, e.body))
       end
 
       def get_execution_preview(params = {}, options = {})
@@ -1372,7 +1372,7 @@ module Aws
         end
         Responses::GetExecutionPreview.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_execution_preview_error_data(e.code, e.body))
       end
 
       def get_inventory(params = {}, options = {})
@@ -1388,7 +1388,7 @@ module Aws
         end
         Responses::GetInventory.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_inventory_error_data(e.code, e.body))
       end
 
       def get_inventory_schema(params = {}, options = {})
@@ -1404,7 +1404,7 @@ module Aws
         end
         Responses::GetInventorySchema.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_inventory_schema_error_data(e.code, e.body))
       end
 
       def get_maintenance_window(params = {}, options = {})
@@ -1420,7 +1420,7 @@ module Aws
         end
         Responses::GetMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_maintenance_window_error_data(e.code, e.body))
       end
 
       def get_maintenance_window_execution(params = {}, options = {})
@@ -1436,7 +1436,7 @@ module Aws
         end
         Responses::GetMaintenanceWindowExecution.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_maintenance_window_execution_error_data(e.code, e.body))
       end
 
       def get_maintenance_window_execution_task(params = {}, options = {})
@@ -1452,7 +1452,7 @@ module Aws
         end
         Responses::GetMaintenanceWindowExecutionTask.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_maintenance_window_execution_task_error_data(e.code, e.body))
       end
 
       def get_maintenance_window_execution_task_invocation(params = {}, options = {})
@@ -1468,7 +1468,7 @@ module Aws
         end
         Responses::GetMaintenanceWindowExecutionTaskInvocation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_maintenance_window_execution_task_invocation_error_data(e.code, e.body))
       end
 
       def get_maintenance_window_task(params = {}, options = {})
@@ -1484,7 +1484,7 @@ module Aws
         end
         Responses::GetMaintenanceWindowTask.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_maintenance_window_task_error_data(e.code, e.body))
       end
 
       def get_ops_item(params = {}, options = {})
@@ -1500,7 +1500,7 @@ module Aws
         end
         Responses::GetOpsItem.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_ops_item_error_data(e.code, e.body))
       end
 
       def get_ops_metadata(params = {}, options = {})
@@ -1516,7 +1516,7 @@ module Aws
         end
         Responses::GetOpsMetadata.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_ops_metadata_error_data(e.code, e.body))
       end
 
       def get_ops_summary(params = {}, options = {})
@@ -1532,7 +1532,7 @@ module Aws
         end
         Responses::GetOpsSummary.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_ops_summary_error_data(e.code, e.body))
       end
 
       def get_parameter(params = {}, options = {})
@@ -1548,7 +1548,7 @@ module Aws
         end
         Responses::GetParameter.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_parameter_error_data(e.code, e.body))
       end
 
       def get_parameter_history(params = {}, options = {})
@@ -1564,7 +1564,7 @@ module Aws
         end
         Responses::GetParameterHistory.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_parameter_history_error_data(e.code, e.body))
       end
 
       def get_parameters(params = {}, options = {})
@@ -1580,7 +1580,7 @@ module Aws
         end
         Responses::GetParameters.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_parameters_error_data(e.code, e.body))
       end
 
       def get_parameters_by_path(params = {}, options = {})
@@ -1596,7 +1596,7 @@ module Aws
         end
         Responses::GetParametersByPath.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_parameters_by_path_error_data(e.code, e.body))
       end
 
       def get_patch_baseline(params = {}, options = {})
@@ -1612,7 +1612,7 @@ module Aws
         end
         Responses::GetPatchBaseline.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_patch_baseline_error_data(e.code, e.body))
       end
 
       def get_patch_baseline_for_patch_group(params = {}, options = {})
@@ -1628,7 +1628,7 @@ module Aws
         end
         Responses::GetPatchBaselineForPatchGroup.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_patch_baseline_for_patch_group_error_data(e.code, e.body))
       end
 
       def get_resource_policies(params = {}, options = {})
@@ -1644,7 +1644,7 @@ module Aws
         end
         Responses::GetResourcePolicies.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_resource_policies_error_data(e.code, e.body))
       end
 
       def get_service_setting(params = {}, options = {})
@@ -1660,7 +1660,7 @@ module Aws
         end
         Responses::GetServiceSetting.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.get_service_setting_error_data(e.code, e.body))
       end
 
       def label_parameter_version(params = {}, options = {})
@@ -1676,7 +1676,7 @@ module Aws
         end
         Responses::LabelParameterVersion.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.label_parameter_version_error_data(e.code, e.body))
       end
 
       def list_association_versions(params = {}, options = {})
@@ -1692,7 +1692,7 @@ module Aws
         end
         Responses::ListAssociationVersions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_association_versions_error_data(e.code, e.body))
       end
 
       def list_associations(params = {}, options = {})
@@ -1708,7 +1708,7 @@ module Aws
         end
         Responses::ListAssociations.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_associations_error_data(e.code, e.body))
       end
 
       def list_cloud_connectors(params = {}, options = {})
@@ -1724,7 +1724,7 @@ module Aws
         end
         Responses::ListCloudConnectors.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_cloud_connectors_error_data(e.code, e.body))
       end
 
       def list_command_invocations(params = {}, options = {})
@@ -1740,7 +1740,7 @@ module Aws
         end
         Responses::ListCommandInvocations.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_command_invocations_error_data(e.code, e.body))
       end
 
       def list_commands(params = {}, options = {})
@@ -1756,7 +1756,7 @@ module Aws
         end
         Responses::ListCommands.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_commands_error_data(e.code, e.body))
       end
 
       def list_compliance_items(params = {}, options = {})
@@ -1772,7 +1772,7 @@ module Aws
         end
         Responses::ListComplianceItems.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_compliance_items_error_data(e.code, e.body))
       end
 
       def list_compliance_summaries(params = {}, options = {})
@@ -1788,7 +1788,7 @@ module Aws
         end
         Responses::ListComplianceSummaries.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_compliance_summaries_error_data(e.code, e.body))
       end
 
       def list_document_metadata_history(params = {}, options = {})
@@ -1804,7 +1804,7 @@ module Aws
         end
         Responses::ListDocumentMetadataHistory.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_document_metadata_history_error_data(e.code, e.body))
       end
 
       def list_document_versions(params = {}, options = {})
@@ -1820,7 +1820,7 @@ module Aws
         end
         Responses::ListDocumentVersions.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_document_versions_error_data(e.code, e.body))
       end
 
       def list_documents(params = {}, options = {})
@@ -1836,7 +1836,7 @@ module Aws
         end
         Responses::ListDocuments.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_documents_error_data(e.code, e.body))
       end
 
       def list_inventory_entries(params = {}, options = {})
@@ -1852,7 +1852,7 @@ module Aws
         end
         Responses::ListInventoryEntries.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_inventory_entries_error_data(e.code, e.body))
       end
 
       def list_nodes(params = {}, options = {})
@@ -1868,7 +1868,7 @@ module Aws
         end
         Responses::ListNodes.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_nodes_error_data(e.code, e.body))
       end
 
       def list_nodes_summary(params = {}, options = {})
@@ -1884,7 +1884,7 @@ module Aws
         end
         Responses::ListNodesSummary.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_nodes_summary_error_data(e.code, e.body))
       end
 
       def list_ops_item_events(params = {}, options = {})
@@ -1900,7 +1900,7 @@ module Aws
         end
         Responses::ListOpsItemEvents.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_ops_item_events_error_data(e.code, e.body))
       end
 
       def list_ops_item_related_items(params = {}, options = {})
@@ -1916,7 +1916,7 @@ module Aws
         end
         Responses::ListOpsItemRelatedItems.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_ops_item_related_items_error_data(e.code, e.body))
       end
 
       def list_ops_metadata(params = {}, options = {})
@@ -1932,7 +1932,7 @@ module Aws
         end
         Responses::ListOpsMetadata.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_ops_metadata_error_data(e.code, e.body))
       end
 
       def list_resource_compliance_summaries(params = {}, options = {})
@@ -1948,7 +1948,7 @@ module Aws
         end
         Responses::ListResourceComplianceSummaries.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_resource_compliance_summaries_error_data(e.code, e.body))
       end
 
       def list_resource_data_sync(params = {}, options = {})
@@ -1964,7 +1964,7 @@ module Aws
         end
         Responses::ListResourceDataSync.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_resource_data_sync_error_data(e.code, e.body))
       end
 
       def list_tags_for_resource(params = {}, options = {})
@@ -1980,7 +1980,7 @@ module Aws
         end
         Responses::ListTagsForResource.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.list_tags_for_resource_error_data(e.code, e.body))
       end
 
       def modify_document_permission(params = {}, options = {})
@@ -1996,7 +1996,7 @@ module Aws
         end
         Responses::ModifyDocumentPermission.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.modify_document_permission_error_data(e.code, e.body))
       end
 
       def put_compliance_items(params = {}, options = {})
@@ -2012,7 +2012,7 @@ module Aws
         end
         Responses::PutComplianceItems.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.put_compliance_items_error_data(e.code, e.body))
       end
 
       def put_inventory(params = {}, options = {})
@@ -2028,7 +2028,7 @@ module Aws
         end
         Responses::PutInventory.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.put_inventory_error_data(e.code, e.body))
       end
 
       def put_parameter(params = {}, options = {})
@@ -2044,7 +2044,7 @@ module Aws
         end
         Responses::PutParameter.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.put_parameter_error_data(e.code, e.body))
       end
 
       def put_resource_policy(params = {}, options = {})
@@ -2060,7 +2060,7 @@ module Aws
         end
         Responses::PutResourcePolicy.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.put_resource_policy_error_data(e.code, e.body))
       end
 
       def register_default_patch_baseline(params = {}, options = {})
@@ -2076,7 +2076,7 @@ module Aws
         end
         Responses::RegisterDefaultPatchBaseline.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.register_default_patch_baseline_error_data(e.code, e.body))
       end
 
       def register_patch_baseline_for_patch_group(params = {}, options = {})
@@ -2092,7 +2092,7 @@ module Aws
         end
         Responses::RegisterPatchBaselineForPatchGroup.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.register_patch_baseline_for_patch_group_error_data(e.code, e.body))
       end
 
       def register_target_with_maintenance_window(params = {}, options = {})
@@ -2108,7 +2108,7 @@ module Aws
         end
         Responses::RegisterTargetWithMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.register_target_with_maintenance_window_error_data(e.code, e.body))
       end
 
       def register_task_with_maintenance_window(params = {}, options = {})
@@ -2124,7 +2124,7 @@ module Aws
         end
         Responses::RegisterTaskWithMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.register_task_with_maintenance_window_error_data(e.code, e.body))
       end
 
       def remove_tags_from_resource(params = {}, options = {})
@@ -2140,7 +2140,7 @@ module Aws
         end
         Responses::RemoveTagsFromResource.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.remove_tags_from_resource_error_data(e.code, e.body))
       end
 
       def reset_service_setting(params = {}, options = {})
@@ -2156,7 +2156,7 @@ module Aws
         end
         Responses::ResetServiceSetting.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.reset_service_setting_error_data(e.code, e.body))
       end
 
       def resume_session(params = {}, options = {})
@@ -2172,7 +2172,7 @@ module Aws
         end
         Responses::ResumeSession.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.resume_session_error_data(e.code, e.body))
       end
 
       def send_automation_signal(params = {}, options = {})
@@ -2188,7 +2188,7 @@ module Aws
         end
         Responses::SendAutomationSignal.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.send_automation_signal_error_data(e.code, e.body))
       end
 
       def send_command(params = {}, options = {})
@@ -2204,7 +2204,7 @@ module Aws
         end
         Responses::SendCommand.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.send_command_error_data(e.code, e.body))
       end
 
       def start_access_request(params = {}, options = {})
@@ -2220,7 +2220,7 @@ module Aws
         end
         Responses::StartAccessRequest.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.start_access_request_error_data(e.code, e.body))
       end
 
       def start_associations_once(params = {}, options = {})
@@ -2236,7 +2236,7 @@ module Aws
         end
         Responses::StartAssociationsOnce.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.start_associations_once_error_data(e.code, e.body))
       end
 
       def start_automation_execution(params = {}, options = {})
@@ -2252,7 +2252,7 @@ module Aws
         end
         Responses::StartAutomationExecution.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.start_automation_execution_error_data(e.code, e.body))
       end
 
       def start_change_request_execution(params = {}, options = {})
@@ -2268,7 +2268,7 @@ module Aws
         end
         Responses::StartChangeRequestExecution.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.start_change_request_execution_error_data(e.code, e.body))
       end
 
       def start_execution_preview(params = {}, options = {})
@@ -2284,7 +2284,7 @@ module Aws
         end
         Responses::StartExecutionPreview.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.start_execution_preview_error_data(e.code, e.body))
       end
 
       def start_session(params = {}, options = {})
@@ -2300,7 +2300,7 @@ module Aws
         end
         Responses::StartSession.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.start_session_error_data(e.code, e.body))
       end
 
       def stop_automation_execution(params = {}, options = {})
@@ -2316,7 +2316,7 @@ module Aws
         end
         Responses::StopAutomationExecution.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.stop_automation_execution_error_data(e.code, e.body))
       end
 
       def terminate_session(params = {}, options = {})
@@ -2332,7 +2332,7 @@ module Aws
         end
         Responses::TerminateSession.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.terminate_session_error_data(e.code, e.body))
       end
 
       def unlabel_parameter_version(params = {}, options = {})
@@ -2348,7 +2348,7 @@ module Aws
         end
         Responses::UnlabelParameterVersion.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.unlabel_parameter_version_error_data(e.code, e.body))
       end
 
       def update_association(params = {}, options = {})
@@ -2364,7 +2364,7 @@ module Aws
         end
         Responses::UpdateAssociation.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_association_error_data(e.code, e.body))
       end
 
       def update_association_status(params = {}, options = {})
@@ -2380,7 +2380,7 @@ module Aws
         end
         Responses::UpdateAssociationStatus.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_association_status_error_data(e.code, e.body))
       end
 
       def update_cloud_connector(params = {}, options = {})
@@ -2396,7 +2396,7 @@ module Aws
         end
         Responses::UpdateCloudConnector.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_cloud_connector_error_data(e.code, e.body))
       end
 
       def update_document(params = {}, options = {})
@@ -2412,7 +2412,7 @@ module Aws
         end
         Responses::UpdateDocument.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_document_error_data(e.code, e.body))
       end
 
       def update_document_default_version(params = {}, options = {})
@@ -2428,7 +2428,7 @@ module Aws
         end
         Responses::UpdateDocumentDefaultVersion.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_document_default_version_error_data(e.code, e.body))
       end
 
       def update_document_metadata(params = {}, options = {})
@@ -2444,7 +2444,7 @@ module Aws
         end
         Responses::UpdateDocumentMetadata.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_document_metadata_error_data(e.code, e.body))
       end
 
       def update_maintenance_window(params = {}, options = {})
@@ -2460,7 +2460,7 @@ module Aws
         end
         Responses::UpdateMaintenanceWindow.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_maintenance_window_error_data(e.code, e.body))
       end
 
       def update_maintenance_window_target(params = {}, options = {})
@@ -2476,7 +2476,7 @@ module Aws
         end
         Responses::UpdateMaintenanceWindowTarget.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_maintenance_window_target_error_data(e.code, e.body))
       end
 
       def update_maintenance_window_task(params = {}, options = {})
@@ -2492,7 +2492,7 @@ module Aws
         end
         Responses::UpdateMaintenanceWindowTask.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_maintenance_window_task_error_data(e.code, e.body))
       end
 
       def update_managed_instance_role(params = {}, options = {})
@@ -2508,7 +2508,7 @@ module Aws
         end
         Responses::UpdateManagedInstanceRole.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_managed_instance_role_error_data(e.code, e.body))
       end
 
       def update_ops_item(params = {}, options = {})
@@ -2524,7 +2524,7 @@ module Aws
         end
         Responses::UpdateOpsItem.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_ops_item_error_data(e.code, e.body))
       end
 
       def update_ops_metadata(params = {}, options = {})
@@ -2540,7 +2540,7 @@ module Aws
         end
         Responses::UpdateOpsMetadata.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_ops_metadata_error_data(e.code, e.body))
       end
 
       def update_patch_baseline(params = {}, options = {})
@@ -2556,7 +2556,7 @@ module Aws
         end
         Responses::UpdatePatchBaseline.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_patch_baseline_error_data(e.code, e.body))
       end
 
       def update_resource_data_sync(params = {}, options = {})
@@ -2572,7 +2572,7 @@ module Aws
         end
         Responses::UpdateResourceDataSync.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_resource_data_sync_error_data(e.code, e.body))
       end
 
       def update_service_setting(params = {}, options = {})
@@ -2588,7 +2588,7 @@ module Aws
         end
         Responses::UpdateServiceSetting.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.update_service_setting_error_data(e.code, e.body))
       end
 
       def validate_cloud_connector(params = {}, options = {})
@@ -2604,7 +2604,7 @@ module Aws
         end
         Responses::ValidateCloudConnector.new(data, request_context(body))
       rescue Aws::Runtime::ErrorResponse => e
-        raise Errors.error(e.code, e.context, e.message)
+        raise Errors.error(e.code, e.context, e.message, Parsers.validate_cloud_connector_error_data(e.code, e.body))
       end
     end
 

@@ -11,608 +11,2517 @@ module Aws
         parse_add_tags_to_resource_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.add_tags_to_resource_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.associate_ops_item_related_item(json)
         parse_associate_ops_item_related_item_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.associate_ops_item_related_item_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemConflictException" then parse_ops_item_conflict_exception(value)
+        when "OpsItemInvalidParameterException" then parse_ops_item_invalid_parameter_exception(value)
+        when "OpsItemLimitExceededException" then parse_ops_item_limit_exceeded_exception(value)
+        when "OpsItemNotFoundException" then parse_ops_item_not_found_exception(value)
+        when "OpsItemRelatedItemAlreadyExistsException" then parse_ops_item_related_item_already_exists_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.cancel_command(json)
         parse_cancel_command_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.cancel_command_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.cancel_maintenance_window_execution(json)
         parse_cancel_maintenance_window_execution_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.cancel_maintenance_window_execution_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.create_activation(json)
         parse_create_activation_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.create_activation_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidParameters" then parse_invalid_parameters(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.create_association(json)
         parse_create_association_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.create_association_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidParameters" then parse_invalid_parameters(value)
+        when "InvalidSchedule" then parse_invalid_schedule(value)
+        when "InvalidTag" then parse_invalid_tag(value)
+        when "InvalidTarget" then parse_invalid_target(value)
+        when "InvalidTargetMaps" then parse_invalid_target_maps(value)
+        when "UnsupportedPlatformType" then parse_unsupported_platform_type(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.create_association_batch(json)
         parse_create_association_batch_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.create_association_batch_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidParameters" then parse_invalid_parameters(value)
+        when "InvalidSchedule" then parse_invalid_schedule(value)
+        when "InvalidTarget" then parse_invalid_target(value)
+        when "InvalidTargetMaps" then parse_invalid_target_maps(value)
+        when "UnsupportedPlatformType" then parse_unsupported_platform_type(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.create_cloud_connector(json)
         parse_create_cloud_connector_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.create_cloud_connector_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "ConflictException" then parse_conflict_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ServiceQuotaExceededException" then parse_service_quota_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.create_document(json)
         parse_create_document_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.create_document_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DocumentAlreadyExists" then parse_document_already_exists(value)
+        when "DocumentLimitExceeded" then parse_document_limit_exceeded(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocumentContent" then parse_invalid_document_content(value)
+        when "InvalidDocumentSchemaVersion" then parse_invalid_document_schema_version(value)
+        when "MaxDocumentSizeExceeded" then parse_max_document_size_exceeded(value)
+        when "NoLongerSupportedException" then parse_no_longer_supported_exception(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.create_maintenance_window(json)
         parse_create_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.create_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "IdempotentParameterMismatch" then parse_idempotent_parameter_mismatch(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceLimitExceededException" then parse_resource_limit_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.create_ops_item(json)
         parse_create_ops_item_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.create_ops_item_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemAccessDeniedException" then parse_ops_item_access_denied_exception(value)
+        when "OpsItemAlreadyExistsException" then parse_ops_item_already_exists_exception(value)
+        when "OpsItemInvalidParameterException" then parse_ops_item_invalid_parameter_exception(value)
+        when "OpsItemLimitExceededException" then parse_ops_item_limit_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.create_ops_metadata(json)
         parse_create_ops_metadata_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.create_ops_metadata_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsMetadataAlreadyExistsException" then parse_ops_metadata_already_exists_exception(value)
+        when "OpsMetadataInvalidArgumentException" then parse_ops_metadata_invalid_argument_exception(value)
+        when "OpsMetadataLimitExceededException" then parse_ops_metadata_limit_exceeded_exception(value)
+        when "OpsMetadataTooManyUpdatesException" then parse_ops_metadata_too_many_updates_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.create_patch_baseline(json)
         parse_create_patch_baseline_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.create_patch_baseline_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "IdempotentParameterMismatch" then parse_idempotent_parameter_mismatch(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceLimitExceededException" then parse_resource_limit_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.create_resource_data_sync(json)
         parse_create_resource_data_sync_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.create_resource_data_sync_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceDataSyncAlreadyExistsException" then parse_resource_data_sync_already_exists_exception(value)
+        when "ResourceDataSyncCountExceededException" then parse_resource_data_sync_count_exceeded_exception(value)
+        when "ResourceDataSyncInvalidConfigurationException" then parse_resource_data_sync_invalid_configuration_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.delete_activation(json)
         parse_delete_activation_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.delete_activation_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidActivation" then parse_invalid_activation(value)
+        when "InvalidActivationId" then parse_invalid_activation_id(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.delete_association(json)
         parse_delete_association_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.delete_association_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.delete_cloud_connector(json)
         parse_delete_cloud_connector_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.delete_cloud_connector_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "ConflictException" then parse_conflict_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.delete_document(json)
         parse_delete_document_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.delete_document_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentOperation" then parse_invalid_document_operation(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.delete_inventory(json)
         parse_delete_inventory_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.delete_inventory_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDeleteInventoryParametersException" then parse_invalid_delete_inventory_parameters_exception(value)
+        when "InvalidInventoryRequestException" then parse_invalid_inventory_request_exception(value)
+        when "InvalidOptionException" then parse_invalid_option_exception(value)
+        when "InvalidTypeNameException" then parse_invalid_type_name_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.delete_maintenance_window(json)
         parse_delete_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.delete_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.delete_ops_item(json)
         parse_delete_ops_item_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.delete_ops_item_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemInvalidParameterException" then parse_ops_item_invalid_parameter_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.delete_ops_metadata(json)
         parse_delete_ops_metadata_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.delete_ops_metadata_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsMetadataInvalidArgumentException" then parse_ops_metadata_invalid_argument_exception(value)
+        when "OpsMetadataNotFoundException" then parse_ops_metadata_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.delete_parameter(json)
         parse_delete_parameter_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.delete_parameter_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ParameterNotFound" then parse_parameter_not_found(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.delete_parameters(json)
         parse_delete_parameters_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.delete_parameters_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.delete_patch_baseline(json)
         parse_delete_patch_baseline_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.delete_patch_baseline_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceInUseException" then parse_resource_in_use_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.delete_resource_data_sync(json)
         parse_delete_resource_data_sync_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.delete_resource_data_sync_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceDataSyncInvalidConfigurationException" then parse_resource_data_sync_invalid_configuration_exception(value)
+        when "ResourceDataSyncNotFoundException" then parse_resource_data_sync_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.delete_resource_policy(json)
         parse_delete_resource_policy_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.delete_resource_policy_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "MalformedResourcePolicyDocumentException" then parse_malformed_resource_policy_document_exception(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        when "ResourcePolicyConflictException" then parse_resource_policy_conflict_exception(value)
+        when "ResourcePolicyInvalidParameterException" then parse_resource_policy_invalid_parameter_exception(value)
+        when "ResourcePolicyNotFoundException" then parse_resource_policy_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.deregister_managed_instance(json)
         parse_deregister_managed_instance_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.deregister_managed_instance_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.deregister_patch_baseline_for_patch_group(json)
         parse_deregister_patch_baseline_for_patch_group_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.deregister_patch_baseline_for_patch_group_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.deregister_target_from_maintenance_window(json)
         parse_deregister_target_from_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.deregister_target_from_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "TargetInUseException" then parse_target_in_use_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.deregister_task_from_maintenance_window(json)
         parse_deregister_task_from_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.deregister_task_from_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_activations(json)
         parse_describe_activations_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_activations_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_association(json)
         parse_describe_association_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_association_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAssociationVersion" then parse_invalid_association_version(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_association_execution_targets(json)
         parse_describe_association_execution_targets_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_association_execution_targets_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "AssociationExecutionDoesNotExist" then parse_association_execution_does_not_exist(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_association_executions(json)
         parse_describe_association_executions_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_association_executions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_automation_executions(json)
         parse_describe_automation_executions_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_automation_executions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilterValue" then parse_invalid_filter_value(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_automation_step_executions(json)
         parse_describe_automation_step_executions_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_automation_step_executions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AutomationExecutionNotFoundException" then parse_automation_execution_not_found_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilterValue" then parse_invalid_filter_value(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_available_patches(json)
         parse_describe_available_patches_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_available_patches_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_document(json)
         parse_describe_document_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_document_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_document_permission(json)
         parse_describe_document_permission_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_document_permission_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentOperation" then parse_invalid_document_operation(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "InvalidPermissionType" then parse_invalid_permission_type(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_effective_instance_associations(json)
         parse_describe_effective_instance_associations_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_effective_instance_associations_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_effective_patches_for_patch_baseline(json)
         parse_describe_effective_patches_for_patch_baseline_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_effective_patches_for_patch_baseline_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "UnsupportedOperatingSystem" then parse_unsupported_operating_system(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_instance_associations_status(json)
         parse_describe_instance_associations_status_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_instance_associations_status_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_instance_information(json)
         parse_describe_instance_information_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_instance_information_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidInstanceInformationFilterValue" then parse_invalid_instance_information_filter_value(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_instance_patch_states(json)
         parse_describe_instance_patch_states_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_instance_patch_states_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_instance_patch_states_for_patch_group(json)
         parse_describe_instance_patch_states_for_patch_group_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_instance_patch_states_for_patch_group_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_instance_patches(json)
         parse_describe_instance_patches_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_instance_patches_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_instance_properties(json)
         parse_describe_instance_properties_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_instance_properties_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidActivationId" then parse_invalid_activation_id(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidInstancePropertyFilterValue" then parse_invalid_instance_property_filter_value(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_inventory_deletions(json)
         parse_describe_inventory_deletions_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_inventory_deletions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDeletionIdException" then parse_invalid_deletion_id_exception(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_maintenance_window_execution_task_invocations(json)
         parse_describe_maintenance_window_execution_task_invocations_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_maintenance_window_execution_task_invocations_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_maintenance_window_execution_tasks(json)
         parse_describe_maintenance_window_execution_tasks_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_maintenance_window_execution_tasks_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_maintenance_window_executions(json)
         parse_describe_maintenance_window_executions_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_maintenance_window_executions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_maintenance_window_schedule(json)
         parse_describe_maintenance_window_schedule_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_maintenance_window_schedule_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_maintenance_window_targets(json)
         parse_describe_maintenance_window_targets_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_maintenance_window_targets_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_maintenance_window_tasks(json)
         parse_describe_maintenance_window_tasks_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_maintenance_window_tasks_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_maintenance_windows(json)
         parse_describe_maintenance_windows_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_maintenance_windows_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_maintenance_windows_for_target(json)
         parse_describe_maintenance_windows_for_target_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_maintenance_windows_for_target_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_ops_items(json)
         parse_describe_ops_items_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_ops_items_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_parameters(json)
         parse_describe_parameters_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_parameters_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilterOption" then parse_invalid_filter_option(value)
+        when "InvalidFilterValue" then parse_invalid_filter_value(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_patch_baselines(json)
         parse_describe_patch_baselines_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_patch_baselines_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_patch_group_state(json)
         parse_describe_patch_group_state_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_patch_group_state_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_patch_groups(json)
         parse_describe_patch_groups_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_patch_groups_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.describe_patch_properties(json)
         parse_describe_patch_properties_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.describe_patch_properties_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.describe_sessions(json)
         parse_describe_sessions_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.describe_sessions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.disassociate_ops_item_related_item(json)
         parse_disassociate_ops_item_related_item_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.disassociate_ops_item_related_item_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemConflictException" then parse_ops_item_conflict_exception(value)
+        when "OpsItemInvalidParameterException" then parse_ops_item_invalid_parameter_exception(value)
+        when "OpsItemNotFoundException" then parse_ops_item_not_found_exception(value)
+        when "OpsItemRelatedItemAssociationNotFoundException" then parse_ops_item_related_item_association_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_access_token(json)
         parse_get_access_token_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_access_token_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AccessDeniedException" then parse_access_denied_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        when "ThrottlingException" then parse_throttling_exception(value)
+        when "ValidationException" then parse_validation_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_automation_execution(json)
         parse_get_automation_execution_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_automation_execution_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AutomationExecutionNotFoundException" then parse_automation_execution_not_found_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_calendar_state(json)
         parse_get_calendar_state_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_calendar_state_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentType" then parse_invalid_document_type(value)
+        when "UnsupportedCalendarException" then parse_unsupported_calendar_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_cloud_connector(json)
         parse_get_cloud_connector_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_cloud_connector_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_command_invocation(json)
         parse_get_command_invocation_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_command_invocation_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_connection_status(json)
         parse_get_connection_status_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_connection_status_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_default_patch_baseline(json)
         parse_get_default_patch_baseline_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_default_patch_baseline_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_deployable_patch_snapshot_for_instance(json)
         parse_get_deployable_patch_snapshot_for_instance_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_deployable_patch_snapshot_for_instance_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "UnsupportedFeatureRequiredException" then parse_unsupported_feature_required_exception(value)
+        when "UnsupportedOperatingSystem" then parse_unsupported_operating_system(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_document(json)
         parse_get_document_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_document_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_execution_preview(json)
         parse_get_execution_preview_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_execution_preview_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_inventory(json)
         parse_get_inventory_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_inventory_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAggregatorException" then parse_invalid_aggregator_exception(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidInventoryGroupException" then parse_invalid_inventory_group_exception(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "InvalidResultAttributeException" then parse_invalid_result_attribute_exception(value)
+        when "InvalidTypeNameException" then parse_invalid_type_name_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_inventory_schema(json)
         parse_get_inventory_schema_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_inventory_schema_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "InvalidTypeNameException" then parse_invalid_type_name_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_maintenance_window(json)
         parse_get_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_maintenance_window_execution(json)
         parse_get_maintenance_window_execution_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_maintenance_window_execution_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_maintenance_window_execution_task(json)
         parse_get_maintenance_window_execution_task_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_maintenance_window_execution_task_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_maintenance_window_execution_task_invocation(json)
         parse_get_maintenance_window_execution_task_invocation_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_maintenance_window_execution_task_invocation_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_maintenance_window_task(json)
         parse_get_maintenance_window_task_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_maintenance_window_task_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_ops_item(json)
         parse_get_ops_item_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_ops_item_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemAccessDeniedException" then parse_ops_item_access_denied_exception(value)
+        when "OpsItemNotFoundException" then parse_ops_item_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_ops_metadata(json)
         parse_get_ops_metadata_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_ops_metadata_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsMetadataInvalidArgumentException" then parse_ops_metadata_invalid_argument_exception(value)
+        when "OpsMetadataNotFoundException" then parse_ops_metadata_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_ops_summary(json)
         parse_get_ops_summary_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_ops_summary_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAggregatorException" then parse_invalid_aggregator_exception(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "InvalidTypeNameException" then parse_invalid_type_name_exception(value)
+        when "ResourceDataSyncNotFoundException" then parse_resource_data_sync_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_parameter(json)
         parse_get_parameter_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_parameter_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidKeyId" then parse_invalid_key_id(value)
+        when "ParameterNotFound" then parse_parameter_not_found(value)
+        when "ParameterVersionNotFound" then parse_parameter_version_not_found(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_parameter_history(json)
         parse_get_parameter_history_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_parameter_history_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidKeyId" then parse_invalid_key_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "ParameterNotFound" then parse_parameter_not_found(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_parameters(json)
         parse_get_parameters_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_parameters_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidKeyId" then parse_invalid_key_id(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_parameters_by_path(json)
         parse_get_parameters_by_path_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_parameters_by_path_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilterOption" then parse_invalid_filter_option(value)
+        when "InvalidFilterValue" then parse_invalid_filter_value(value)
+        when "InvalidKeyId" then parse_invalid_key_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_patch_baseline(json)
         parse_get_patch_baseline_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_patch_baseline_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_patch_baseline_for_patch_group(json)
         parse_get_patch_baseline_for_patch_group_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_patch_baseline_for_patch_group_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.get_resource_policies(json)
         parse_get_resource_policies_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.get_resource_policies_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        when "ResourcePolicyInvalidParameterException" then parse_resource_policy_invalid_parameter_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.get_service_setting(json)
         parse_get_service_setting_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.get_service_setting_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ServiceSettingNotFound" then parse_service_setting_not_found(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.label_parameter_version(json)
         parse_label_parameter_version_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.label_parameter_version_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ParameterNotFound" then parse_parameter_not_found(value)
+        when "ParameterVersionLabelLimitExceeded" then parse_parameter_version_label_limit_exceeded(value)
+        when "ParameterVersionNotFound" then parse_parameter_version_not_found(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_association_versions(json)
         parse_list_association_versions_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_association_versions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_associations(json)
         parse_list_associations_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_associations_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_cloud_connectors(json)
         parse_list_cloud_connectors_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_cloud_connectors_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_command_invocations(json)
         parse_list_command_invocations_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_command_invocations_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_commands(json)
         parse_list_commands_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_commands_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_compliance_items(json)
         parse_list_compliance_items_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_compliance_items_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_compliance_summaries(json)
         parse_list_compliance_summaries_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_compliance_summaries_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_document_metadata_history(json)
         parse_list_document_metadata_history_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_document_metadata_history_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_document_versions(json)
         parse_list_document_versions_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_document_versions_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_documents(json)
         parse_list_documents_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_documents_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_inventory_entries(json)
         parse_list_inventory_entries_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_inventory_entries_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "InvalidTypeNameException" then parse_invalid_type_name_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_nodes(json)
         parse_list_nodes_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_nodes_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "ResourceDataSyncNotFoundException" then parse_resource_data_sync_not_found_exception(value)
+        when "UnsupportedOperationException" then parse_unsupported_operation_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_nodes_summary(json)
         parse_list_nodes_summary_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_nodes_summary_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAggregatorException" then parse_invalid_aggregator_exception(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "ResourceDataSyncNotFoundException" then parse_resource_data_sync_not_found_exception(value)
+        when "UnsupportedOperationException" then parse_unsupported_operation_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_ops_item_events(json)
         parse_list_ops_item_events_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_ops_item_events_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemInvalidParameterException" then parse_ops_item_invalid_parameter_exception(value)
+        when "OpsItemLimitExceededException" then parse_ops_item_limit_exceeded_exception(value)
+        when "OpsItemNotFoundException" then parse_ops_item_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_ops_item_related_items(json)
         parse_list_ops_item_related_items_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_ops_item_related_items_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemInvalidParameterException" then parse_ops_item_invalid_parameter_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_ops_metadata(json)
         parse_list_ops_metadata_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_ops_metadata_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsMetadataInvalidArgumentException" then parse_ops_metadata_invalid_argument_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_resource_compliance_summaries(json)
         parse_list_resource_compliance_summaries_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_resource_compliance_summaries_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidFilter" then parse_invalid_filter(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.list_resource_data_sync(json)
         parse_list_resource_data_sync_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.list_resource_data_sync_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidNextToken" then parse_invalid_next_token(value)
+        when "ResourceDataSyncInvalidConfigurationException" then parse_resource_data_sync_invalid_configuration_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.list_tags_for_resource(json)
         parse_list_tags_for_resource_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.list_tags_for_resource_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.modify_document_permission(json)
         parse_modify_document_permission_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.modify_document_permission_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DocumentLimitExceeded" then parse_document_limit_exceeded(value)
+        when "DocumentPermissionLimit" then parse_document_permission_limit(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidPermissionType" then parse_invalid_permission_type(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.put_compliance_items(json)
         parse_put_compliance_items_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.put_compliance_items_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "ComplianceTypeCountLimitExceededException" then parse_compliance_type_count_limit_exceeded_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidItemContentException" then parse_invalid_item_content_exception(value)
+        when "ItemSizeLimitExceededException" then parse_item_size_limit_exceeded_exception(value)
+        when "TotalSizeLimitExceededException" then parse_total_size_limit_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.put_inventory(json)
         parse_put_inventory_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.put_inventory_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "CustomSchemaCountLimitExceededException" then parse_custom_schema_count_limit_exceeded_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidInventoryItemContextException" then parse_invalid_inventory_item_context_exception(value)
+        when "InvalidItemContentException" then parse_invalid_item_content_exception(value)
+        when "InvalidTypeNameException" then parse_invalid_type_name_exception(value)
+        when "ItemContentMismatchException" then parse_item_content_mismatch_exception(value)
+        when "ItemSizeLimitExceededException" then parse_item_size_limit_exceeded_exception(value)
+        when "SubTypeCountLimitExceededException" then parse_sub_type_count_limit_exceeded_exception(value)
+        when "TotalSizeLimitExceededException" then parse_total_size_limit_exceeded_exception(value)
+        when "UnsupportedInventoryItemContextException" then parse_unsupported_inventory_item_context_exception(value)
+        when "UnsupportedInventorySchemaVersionException" then parse_unsupported_inventory_schema_version_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.put_parameter(json)
         parse_put_parameter_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.put_parameter_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "HierarchyLevelLimitExceededException" then parse_hierarchy_level_limit_exceeded_exception(value)
+        when "HierarchyTypeMismatchException" then parse_hierarchy_type_mismatch_exception(value)
+        when "IncompatiblePolicyException" then parse_incompatible_policy_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAllowedPatternException" then parse_invalid_allowed_pattern_exception(value)
+        when "InvalidKeyId" then parse_invalid_key_id(value)
+        when "InvalidPolicyAttributeException" then parse_invalid_policy_attribute_exception(value)
+        when "InvalidPolicyTypeException" then parse_invalid_policy_type_exception(value)
+        when "ParameterAlreadyExists" then parse_parameter_already_exists(value)
+        when "ParameterLimitExceeded" then parse_parameter_limit_exceeded(value)
+        when "ParameterMaxVersionLimitExceeded" then parse_parameter_max_version_limit_exceeded(value)
+        when "ParameterPatternMismatchException" then parse_parameter_pattern_mismatch_exception(value)
+        when "PoliciesLimitExceededException" then parse_policies_limit_exceeded_exception(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        when "UnsupportedParameterType" then parse_unsupported_parameter_type(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.put_resource_policy(json)
         parse_put_resource_policy_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.put_resource_policy_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "MalformedResourcePolicyDocumentException" then parse_malformed_resource_policy_document_exception(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        when "ResourcePolicyConflictException" then parse_resource_policy_conflict_exception(value)
+        when "ResourcePolicyInvalidParameterException" then parse_resource_policy_invalid_parameter_exception(value)
+        when "ResourcePolicyLimitExceededException" then parse_resource_policy_limit_exceeded_exception(value)
+        when "ResourcePolicyNotFoundException" then parse_resource_policy_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.register_default_patch_baseline(json)
         parse_register_default_patch_baseline_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.register_default_patch_baseline_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.register_patch_baseline_for_patch_group(json)
         parse_register_patch_baseline_for_patch_group_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.register_patch_baseline_for_patch_group_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AlreadyExistsException" then parse_already_exists_exception(value)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceLimitExceededException" then parse_resource_limit_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.register_target_with_maintenance_window(json)
         parse_register_target_with_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.register_target_with_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "IdempotentParameterMismatch" then parse_idempotent_parameter_mismatch(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceLimitExceededException" then parse_resource_limit_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.register_task_with_maintenance_window(json)
         parse_register_task_with_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.register_task_with_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "FeatureNotAvailableException" then parse_feature_not_available_exception(value)
+        when "IdempotentParameterMismatch" then parse_idempotent_parameter_mismatch(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceLimitExceededException" then parse_resource_limit_exceeded_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.remove_tags_from_resource(json)
         parse_remove_tags_from_resource_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.remove_tags_from_resource_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.reset_service_setting(json)
         parse_reset_service_setting_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.reset_service_setting_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ServiceSettingNotFound" then parse_service_setting_not_found(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.resume_session(json)
         parse_resume_session_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.resume_session_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.send_automation_signal(json)
         parse_send_automation_signal_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.send_automation_signal_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AutomationExecutionNotFoundException" then parse_automation_execution_not_found_exception(value)
+        when "AutomationStepNotFoundException" then parse_automation_step_not_found_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAutomationSignalException" then parse_invalid_automation_signal_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.send_command(json)
         parse_send_command_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.send_command_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "InvalidNotificationConfig" then parse_invalid_notification_config(value)
+        when "InvalidParameters" then parse_invalid_parameters(value)
+        when "InvalidRole" then parse_invalid_role(value)
+        when "MaxDocumentSizeExceeded" then parse_max_document_size_exceeded(value)
+        when "UnsupportedPlatformType" then parse_unsupported_platform_type(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.start_access_request(json)
         parse_start_access_request_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.start_access_request_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AccessDeniedException" then parse_access_denied_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        when "ServiceQuotaExceededException" then parse_service_quota_exceeded_exception(value)
+        when "ThrottlingException" then parse_throttling_exception(value)
+        when "ValidationException" then parse_validation_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.start_associations_once(json)
         parse_start_associations_once_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.start_associations_once_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "InvalidAssociation" then parse_invalid_association(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.start_automation_execution(json)
         parse_start_automation_execution_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.start_automation_execution_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AutomationDefinitionNotFoundException" then parse_automation_definition_not_found_exception(value)
+        when "AutomationDefinitionVersionNotFoundException" then parse_automation_definition_version_not_found_exception(value)
+        when "AutomationExecutionLimitExceededException" then parse_automation_execution_limit_exceeded_exception(value)
+        when "IdempotentParameterMismatch" then parse_idempotent_parameter_mismatch(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAutomationExecutionParametersException" then parse_invalid_automation_execution_parameters_exception(value)
+        when "InvalidTarget" then parse_invalid_target(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.start_change_request_execution(json)
         parse_start_change_request_execution_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.start_change_request_execution_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AutomationDefinitionNotApprovedException" then parse_automation_definition_not_approved_exception(value)
+        when "AutomationDefinitionNotFoundException" then parse_automation_definition_not_found_exception(value)
+        when "AutomationDefinitionVersionNotFoundException" then parse_automation_definition_version_not_found_exception(value)
+        when "AutomationExecutionLimitExceededException" then parse_automation_execution_limit_exceeded_exception(value)
+        when "IdempotentParameterMismatch" then parse_idempotent_parameter_mismatch(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAutomationExecutionParametersException" then parse_invalid_automation_execution_parameters_exception(value)
+        when "NoLongerSupportedException" then parse_no_longer_supported_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.start_execution_preview(json)
         parse_start_execution_preview_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.start_execution_preview_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ValidationException" then parse_validation_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.start_session(json)
         parse_start_session_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.start_session_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "TargetNotConnected" then parse_target_not_connected(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.stop_automation_execution(json)
         parse_stop_automation_execution_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.stop_automation_execution_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AutomationExecutionNotFoundException" then parse_automation_execution_not_found_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAutomationStatusUpdateException" then parse_invalid_automation_status_update_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.terminate_session(json)
         parse_terminate_session_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.terminate_session_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.unlabel_parameter_version(json)
         parse_unlabel_parameter_version_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.unlabel_parameter_version_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ParameterNotFound" then parse_parameter_not_found(value)
+        when "ParameterVersionNotFound" then parse_parameter_version_not_found(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_association(json)
         parse_update_association_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_association_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "AssociationVersionLimitExceeded" then parse_association_version_limit_exceeded(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidAssociationVersion" then parse_invalid_association_version(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        when "InvalidParameters" then parse_invalid_parameters(value)
+        when "InvalidSchedule" then parse_invalid_schedule(value)
+        when "InvalidTarget" then parse_invalid_target(value)
+        when "InvalidTargetMaps" then parse_invalid_target_maps(value)
+        when "InvalidUpdate" then parse_invalid_update(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.update_association_status(json)
         parse_update_association_status_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.update_association_status_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "AssociationDoesNotExist" then parse_association_does_not_exist(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_cloud_connector(json)
         parse_update_cloud_connector_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_cloud_connector_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "ConflictException" then parse_conflict_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.update_document(json)
         parse_update_document_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.update_document_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DocumentVersionLimitExceeded" then parse_document_version_limit_exceeded(value)
+        when "DuplicateDocumentContent" then parse_duplicate_document_content(value)
+        when "DuplicateDocumentVersionName" then parse_duplicate_document_version_name(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentContent" then parse_invalid_document_content(value)
+        when "InvalidDocumentOperation" then parse_invalid_document_operation(value)
+        when "InvalidDocumentSchemaVersion" then parse_invalid_document_schema_version(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        when "MaxDocumentSizeExceeded" then parse_max_document_size_exceeded(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_document_default_version(json)
         parse_update_document_default_version_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_document_default_version_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentSchemaVersion" then parse_invalid_document_schema_version(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.update_document_metadata(json)
         parse_update_document_metadata_response(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.update_document_metadata_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidDocument" then parse_invalid_document(value)
+        when "InvalidDocumentOperation" then parse_invalid_document_operation(value)
+        when "InvalidDocumentVersion" then parse_invalid_document_version(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_maintenance_window(json)
         parse_update_maintenance_window_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_maintenance_window_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.update_maintenance_window_target(json)
         parse_update_maintenance_window_target_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.update_maintenance_window_target_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_maintenance_window_task(json)
         parse_update_maintenance_window_task_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_maintenance_window_task_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.update_managed_instance_role(json)
         parse_update_managed_instance_role_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.update_managed_instance_role_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "InvalidInstanceId" then parse_invalid_instance_id(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_ops_item(json)
         parse_update_ops_item_response(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_ops_item_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsItemAccessDeniedException" then parse_ops_item_access_denied_exception(value)
+        when "OpsItemAlreadyExistsException" then parse_ops_item_already_exists_exception(value)
+        when "OpsItemConflictException" then parse_ops_item_conflict_exception(value)
+        when "OpsItemInvalidParameterException" then parse_ops_item_invalid_parameter_exception(value)
+        when "OpsItemLimitExceededException" then parse_ops_item_limit_exceeded_exception(value)
+        when "OpsItemNotFoundException" then parse_ops_item_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.update_ops_metadata(json)
         parse_update_ops_metadata_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.update_ops_metadata_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "OpsMetadataInvalidArgumentException" then parse_ops_metadata_invalid_argument_exception(value)
+        when "OpsMetadataKeyLimitExceededException" then parse_ops_metadata_key_limit_exceeded_exception(value)
+        when "OpsMetadataNotFoundException" then parse_ops_metadata_not_found_exception(value)
+        when "OpsMetadataTooManyUpdatesException" then parse_ops_metadata_too_many_updates_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_patch_baseline(json)
         parse_update_patch_baseline_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_patch_baseline_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "DoesNotExistException" then parse_does_not_exist_exception(value)
+        when "InternalServerError" then parse_internal_server_error(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.update_resource_data_sync(json)
         parse_update_resource_data_sync_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.update_resource_data_sync_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceDataSyncConflictException" then parse_resource_data_sync_conflict_exception(value)
+        when "ResourceDataSyncInvalidConfigurationException" then parse_resource_data_sync_invalid_configuration_exception(value)
+        when "ResourceDataSyncNotFoundException" then parse_resource_data_sync_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
       end
 
       def self.update_service_setting(json)
         parse_update_service_setting_result(JSON.parse(json.empty? ? '{}' : json))
       end
 
+      def self.update_service_setting_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ServiceSettingNotFound" then parse_service_setting_not_found(value)
+        when "TooManyUpdates" then parse_too_many_updates(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
       def self.validate_cloud_connector(json)
         parse_validate_cloud_connector_result(JSON.parse(json.empty? ? '{}' : json))
+      end
+
+      def self.validate_cloud_connector_error_data(code, body)
+        value = Aws::Runtime::Json.error_body(body)
+        return Aws::EmptyStructure.new if value.nil?
+
+        case Aws::Runtime::Json.error_shape_name(code)
+        when "InternalServerError" then parse_internal_server_error(value)
+        when "ResourceNotFoundException" then parse_resource_not_found_exception(value)
+        else Aws::EmptyStructure.new
+        end
+      end
+
+      def self.parse_access_denied_exception(value)
+        return nil if value.nil?
+
+        Types::AccessDeniedException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_account_id_list(value)
@@ -711,6 +2620,14 @@ module Aws
         value.map { |item| parse_alarm_state_information(item) }
       end
 
+      def self.parse_already_exists_exception(value)
+        return nil if value.nil?
+
+        Types::AlreadyExistsException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_associate_ops_item_related_item_response(value)
         return nil if value.nil?
 
@@ -782,6 +2699,14 @@ module Aws
         value.map { |item| parse_association_description(item) }
       end
 
+      def self.parse_association_does_not_exist(value)
+        return nil if value.nil?
+
+        Types::AssociationDoesNotExist.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_association_execution(value)
         return nil if value.nil?
 
@@ -796,6 +2721,14 @@ module Aws
           resource_count_by_status: Aws::Runtime::Json.string(value["ResourceCountByStatus"]),
           alarm_configuration: parse_alarm_configuration(value["AlarmConfiguration"]),
           triggered_alarms: parse_alarm_state_information_list(value["TriggeredAlarms"])
+        )
+      end
+
+      def self.parse_association_execution_does_not_exist(value)
+        return nil if value.nil?
+
+        Types::AssociationExecutionDoesNotExist.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -890,6 +2823,14 @@ module Aws
         )
       end
 
+      def self.parse_association_version_limit_exceeded(value)
+        return nil if value.nil?
+
+        Types::AssociationVersionLimitExceeded.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_association_version_list(value)
         return nil if value.nil?
 
@@ -926,6 +2867,30 @@ module Aws
         return nil if value.nil?
 
         value.map { |item| parse_attachment_information(item) }
+      end
+
+      def self.parse_automation_definition_not_approved_exception(value)
+        return nil if value.nil?
+
+        Types::AutomationDefinitionNotApprovedException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_automation_definition_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::AutomationDefinitionNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_automation_definition_version_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::AutomationDefinitionVersionNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_automation_execution(value)
@@ -968,6 +2933,14 @@ module Aws
           association_id: Aws::Runtime::Json.string(value["AssociationId"]),
           change_request_name: Aws::Runtime::Json.string(value["ChangeRequestName"]),
           variables: parse_automation_parameter_map(value["Variables"])
+        )
+      end
+
+      def self.parse_automation_execution_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::AutomationExecutionLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -1016,6 +2989,14 @@ module Aws
         value.map { |item| parse_automation_execution_metadata(item) }
       end
 
+      def self.parse_automation_execution_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::AutomationExecutionNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_automation_execution_preview(value)
         return nil if value.nil?
 
@@ -1039,6 +3020,14 @@ module Aws
         return nil if value.nil?
 
         value.map { |item| Aws::Runtime::Json.string(item) }
+      end
+
+      def self.parse_automation_step_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::AutomationStepNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_automation_targets(value)
@@ -1294,6 +3283,14 @@ module Aws
         value.map { |item| parse_compliance_summary_item(item) }
       end
 
+      def self.parse_compliance_type_count_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::ComplianceTypeCountLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_compliant_summary(value)
         return nil if value.nil?
 
@@ -1309,6 +3306,14 @@ module Aws
         Types::ConfigurationTargets.from_members(
           parse_azure_subscription_list(value["Subscriptions"]),
           Aws::Runtime::Json.union_unknown(value, ["Subscriptions"])
+        )
+      end
+
+      def self.parse_conflict_exception(value)
+        return nil if value.nil?
+
+        Types::ConflictException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -1430,6 +3435,14 @@ module Aws
           secret_access_key: Aws::Runtime::Json.string(value["SecretAccessKey"]),
           session_token: Aws::Runtime::Json.string(value["SessionToken"]),
           expiration_time: Aws::Runtime::Json.timestamp(value["ExpirationTime"])
+        )
+      end
+
+      def self.parse_custom_schema_count_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::CustomSchemaCountLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -1890,6 +3903,14 @@ module Aws
         )
       end
 
+      def self.parse_document_already_exists(value)
+        return nil if value.nil?
+
+        Types::DocumentAlreadyExists.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_document_default_version_description(value)
         return nil if value.nil?
 
@@ -1965,6 +3986,14 @@ module Aws
         value.map { |item| parse_document_identifier(item) }
       end
 
+      def self.parse_document_limit_exceeded(value)
+        return nil if value.nil?
+
+        Types::DocumentLimitExceeded.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_document_metadata_response_info(value)
         return nil if value.nil?
 
@@ -1988,6 +4017,14 @@ module Aws
         return nil if value.nil?
 
         value.map { |item| parse_document_parameter(item) }
+      end
+
+      def self.parse_document_permission_limit(value)
+        return nil if value.nil?
+
+        Types::DocumentPermissionLimit.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_document_requires(value)
@@ -2057,10 +4094,42 @@ module Aws
         )
       end
 
+      def self.parse_document_version_limit_exceeded(value)
+        return nil if value.nil?
+
+        Types::DocumentVersionLimitExceeded.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_document_version_list(value)
         return nil if value.nil?
 
         value.map { |item| parse_document_version_info(item) }
+      end
+
+      def self.parse_does_not_exist_exception(value)
+        return nil if value.nil?
+
+        Types::DoesNotExistException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_duplicate_document_content(value)
+        return nil if value.nil?
+
+        Types::DuplicateDocumentContent.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_duplicate_document_version_name(value)
+        return nil if value.nil?
+
+        Types::DuplicateDocumentVersionName.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_effective_patch(value)
@@ -2116,6 +4185,14 @@ module Aws
           failure_stage: Aws::Runtime::Json.string(value["FailureStage"]),
           failure_type: Aws::Runtime::Json.string(value["FailureType"]),
           details: parse_automation_parameter_map(value["Details"])
+        )
+      end
+
+      def self.parse_feature_not_available_exception(value)
+        return nil if value.nil?
+
+        Types::FeatureNotAvailableException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -2491,6 +4568,38 @@ module Aws
         )
       end
 
+      def self.parse_hierarchy_level_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::HierarchyLevelLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_hierarchy_type_mismatch_exception(value)
+        return nil if value.nil?
+
+        Types::HierarchyTypeMismatchException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_idempotent_parameter_mismatch(value)
+        return nil if value.nil?
+
+        Types::IdempotentParameterMismatch.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_incompatible_policy_exception(value)
+        return nil if value.nil?
+
+        Types::IncompatiblePolicyException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
       def self.parse_instance_aggregated_association_overview(value)
         return nil if value.nil?
 
@@ -2713,6 +4822,359 @@ module Aws
         )
       end
 
+      def self.parse_internal_server_error(value)
+        return nil if value.nil?
+
+        Types::InternalServerError.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_activation(value)
+        return nil if value.nil?
+
+        Types::InvalidActivation.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_activation_id(value)
+        return nil if value.nil?
+
+        Types::InvalidActivationId.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_aggregator_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidAggregatorException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_allowed_pattern_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidAllowedPatternException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_invalid_association(value)
+        return nil if value.nil?
+
+        Types::InvalidAssociation.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_association_version(value)
+        return nil if value.nil?
+
+        Types::InvalidAssociationVersion.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_automation_execution_parameters_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidAutomationExecutionParametersException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_automation_signal_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidAutomationSignalException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_automation_status_update_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidAutomationStatusUpdateException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_delete_inventory_parameters_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidDeleteInventoryParametersException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_deletion_id_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidDeletionIdException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_document(value)
+        return nil if value.nil?
+
+        Types::InvalidDocument.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_document_content(value)
+        return nil if value.nil?
+
+        Types::InvalidDocumentContent.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_document_operation(value)
+        return nil if value.nil?
+
+        Types::InvalidDocumentOperation.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_document_schema_version(value)
+        return nil if value.nil?
+
+        Types::InvalidDocumentSchemaVersion.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_document_type(value)
+        return nil if value.nil?
+
+        Types::InvalidDocumentType.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_document_version(value)
+        return nil if value.nil?
+
+        Types::InvalidDocumentVersion.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_filter(value)
+        return nil if value.nil?
+
+        Types::InvalidFilter.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_filter_option(value)
+        return nil if value.nil?
+
+        Types::InvalidFilterOption.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_invalid_filter_value(value)
+        return nil if value.nil?
+
+        Types::InvalidFilterValue.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_instance_id(value)
+        return nil if value.nil?
+
+        Types::InvalidInstanceId.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_instance_information_filter_value(value)
+        return nil if value.nil?
+
+        Types::InvalidInstanceInformationFilterValue.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_invalid_instance_property_filter_value(value)
+        return nil if value.nil?
+
+        Types::InvalidInstancePropertyFilterValue.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_invalid_inventory_group_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidInventoryGroupException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_inventory_item_context_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidInventoryItemContextException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_inventory_request_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidInventoryRequestException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_item_content_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidItemContentException.new(
+          type_name: Aws::Runtime::Json.string(value["TypeName"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_key_id(value)
+        return nil if value.nil?
+
+        Types::InvalidKeyId.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_invalid_next_token(value)
+        return nil if value.nil?
+
+        Types::InvalidNextToken.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_notification_config(value)
+        return nil if value.nil?
+
+        Types::InvalidNotificationConfig.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_option_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidOptionException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_parameters(value)
+        return nil if value.nil?
+
+        Types::InvalidParameters.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_permission_type(value)
+        return nil if value.nil?
+
+        Types::InvalidPermissionType.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_policy_attribute_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidPolicyAttributeException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_invalid_policy_type_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidPolicyTypeException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_invalid_result_attribute_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidResultAttributeException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_role(value)
+        return nil if value.nil?
+
+        Types::InvalidRole.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_schedule(value)
+        return nil if value.nil?
+
+        Types::InvalidSchedule.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_tag(value)
+        return nil if value.nil?
+
+        Types::InvalidTag.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_target(value)
+        return nil if value.nil?
+
+        Types::InvalidTarget.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_target_maps(value)
+        return nil if value.nil?
+
+        Types::InvalidTargetMaps.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_type_name_exception(value)
+        return nil if value.nil?
+
+        Types::InvalidTypeNameException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_invalid_update(value)
+        return nil if value.nil?
+
+        Types::InvalidUpdate.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_inventory_deletion_status_item(value)
         return nil if value.nil?
 
@@ -2838,6 +5300,24 @@ module Aws
         data = {}
         value.each { |key, item| data[key.to_s] = parse_inventory_result_item(item) }
         data
+      end
+
+      def self.parse_item_content_mismatch_exception(value)
+        return nil if value.nil?
+
+        Types::ItemContentMismatchException.new(
+          type_name: Aws::Runtime::Json.string(value["TypeName"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_item_size_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::ItemSizeLimitExceededException.new(
+          type_name: Aws::Runtime::Json.string(value["TypeName"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_label_parameter_version_result(value)
@@ -3282,6 +5762,22 @@ module Aws
         value.map { |item| parse_maintenance_window_identity_for_target(item) }
       end
 
+      def self.parse_malformed_resource_policy_document_exception(value)
+        return nil if value.nil?
+
+        Types::MalformedResourcePolicyDocumentException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_max_document_size_exceeded(value)
+        return nil if value.nil?
+
+        Types::MaxDocumentSizeExceeded.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_metadata_map(value)
         return nil if value.nil?
 
@@ -3303,6 +5799,14 @@ module Aws
 
         Types::ModifyDocumentPermissionResponse.new(
 
+        )
+      end
+
+      def self.parse_no_longer_supported_exception(value)
+        return nil if value.nil?
+
+        Types::NoLongerSupportedException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -3465,6 +5969,31 @@ module Aws
         )
       end
 
+      def self.parse_ops_item_access_denied_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemAccessDeniedException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_ops_item_already_exists_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemAlreadyExistsException.new(
+          message: Aws::Runtime::Json.string(value["Message"]),
+          ops_item_id: Aws::Runtime::Json.string(value["OpsItemId"])
+        )
+      end
+
+      def self.parse_ops_item_conflict_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemConflictException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_ops_item_data_value(value)
         return nil if value.nil?
 
@@ -3502,6 +6031,34 @@ module Aws
         )
       end
 
+      def self.parse_ops_item_invalid_parameter_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemInvalidParameterException.new(
+          parameter_names: parse_ops_item_parameter_names_list(value["ParameterNames"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_ops_item_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemLimitExceededException.new(
+          resource_types: parse_ops_item_parameter_names_list(value["ResourceTypes"]),
+          limit: Aws::Runtime::Json.integer(value["Limit"]),
+          limit_type: Aws::Runtime::Json.string(value["LimitType"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_ops_item_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_ops_item_notification(value)
         return nil if value.nil?
 
@@ -3522,6 +6079,30 @@ module Aws
         data = {}
         value.each { |key, item| data[key.to_s] = parse_ops_item_data_value(item) }
         data
+      end
+
+      def self.parse_ops_item_parameter_names_list(value)
+        return nil if value.nil?
+
+        value.map { |item| Aws::Runtime::Json.string(item) }
+      end
+
+      def self.parse_ops_item_related_item_already_exists_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemRelatedItemAlreadyExistsException.new(
+          message: Aws::Runtime::Json.string(value["Message"]),
+          resource_uri: Aws::Runtime::Json.string(value["ResourceUri"]),
+          ops_item_id: Aws::Runtime::Json.string(value["OpsItemId"])
+        )
+      end
+
+      def self.parse_ops_item_related_item_association_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::OpsItemRelatedItemAssociationNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_ops_item_related_item_summaries(value)
@@ -3588,10 +6169,58 @@ module Aws
         )
       end
 
+      def self.parse_ops_metadata_already_exists_exception(value)
+        return nil if value.nil?
+
+        Types::OpsMetadataAlreadyExistsException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_ops_metadata_invalid_argument_exception(value)
+        return nil if value.nil?
+
+        Types::OpsMetadataInvalidArgumentException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_ops_metadata_key_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::OpsMetadataKeyLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_ops_metadata_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::OpsMetadataLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
       def self.parse_ops_metadata_list(value)
         return nil if value.nil?
 
         value.map { |item| parse_ops_metadata(item) }
+      end
+
+      def self.parse_ops_metadata_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::OpsMetadataNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_ops_metadata_too_many_updates_exception(value)
+        return nil if value.nil?
+
+        Types::OpsMetadataTooManyUpdatesException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
       end
 
       def self.parse_output_source(value)
@@ -3616,6 +6245,14 @@ module Aws
           last_modified_date: Aws::Runtime::Json.timestamp(value["LastModifiedDate"]),
           arn: Aws::Runtime::Json.string(value["ARN"]),
           data_type: Aws::Runtime::Json.string(value["DataType"])
+        )
+      end
+
+      def self.parse_parameter_already_exists(value)
+        return nil if value.nil?
+
+        Types::ParameterAlreadyExists.new(
+          message: Aws::Runtime::Json.string(value["message"])
         )
       end
 
@@ -3661,10 +6298,26 @@ module Aws
         value.map { |item| Aws::Runtime::Json.string(item) }
       end
 
+      def self.parse_parameter_limit_exceeded(value)
+        return nil if value.nil?
+
+        Types::ParameterLimitExceeded.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
       def self.parse_parameter_list(value)
         return nil if value.nil?
 
         value.map { |item| parse_parameter(item) }
+      end
+
+      def self.parse_parameter_max_version_limit_exceeded(value)
+        return nil if value.nil?
+
+        Types::ParameterMaxVersionLimitExceeded.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
       end
 
       def self.parse_parameter_metadata(value)
@@ -3698,6 +6351,22 @@ module Aws
         value.map { |item| Aws::Runtime::Json.string(item) }
       end
 
+      def self.parse_parameter_not_found(value)
+        return nil if value.nil?
+
+        Types::ParameterNotFound.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_parameter_pattern_mismatch_exception(value)
+        return nil if value.nil?
+
+        Types::ParameterPatternMismatchException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
       def self.parse_parameter_policy_list(value)
         return nil if value.nil?
 
@@ -3708,6 +6377,22 @@ module Aws
         return nil if value.nil?
 
         value.map { |item| Aws::Runtime::Json.string(item) }
+      end
+
+      def self.parse_parameter_version_label_limit_exceeded(value)
+        return nil if value.nil?
+
+        Types::ParameterVersionLabelLimitExceeded.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_parameter_version_not_found(value)
+        return nil if value.nil?
+
+        Types::ParameterVersionNotFound.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
       end
 
       def self.parse_parameters(value)
@@ -3956,6 +6641,14 @@ module Aws
         value.map { |item| Aws::Runtime::Json.string(item) }
       end
 
+      def self.parse_policies_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::PoliciesLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
       def self.parse_progress_counters(value)
         return nil if value.nil?
 
@@ -4107,6 +6800,14 @@ module Aws
         value.map { |item| parse_resource_compliance_summary_item(item) }
       end
 
+      def self.parse_resource_data_sync_already_exists_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceDataSyncAlreadyExistsException.new(
+          sync_name: Aws::Runtime::Json.string(value["SyncName"])
+        )
+      end
+
       def self.parse_resource_data_sync_aws_organizations_source(value)
         return nil if value.nil?
 
@@ -4116,11 +6817,35 @@ module Aws
         )
       end
 
+      def self.parse_resource_data_sync_conflict_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceDataSyncConflictException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_data_sync_count_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceDataSyncCountExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_resource_data_sync_destination_data_sharing(value)
         return nil if value.nil?
 
         Types::ResourceDataSyncDestinationDataSharing.new(
           destination_data_sharing_type: Aws::Runtime::Json.string(value["DestinationDataSharingType"])
+        )
+      end
+
+      def self.parse_resource_data_sync_invalid_configuration_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceDataSyncInvalidConfigurationException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -4145,6 +6870,16 @@ module Aws
         return nil if value.nil?
 
         value.map { |item| parse_resource_data_sync_item(item) }
+      end
+
+      def self.parse_resource_data_sync_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceDataSyncNotFoundException.new(
+          sync_name: Aws::Runtime::Json.string(value["SyncName"]),
+          sync_type: Aws::Runtime::Json.string(value["SyncType"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
       end
 
       def self.parse_resource_data_sync_organizational_unit(value)
@@ -4191,6 +6926,71 @@ module Aws
           state: Aws::Runtime::Json.string(value["State"]),
           enable_all_ops_data_sources: Aws::Runtime::Json.boolean(value["EnableAllOpsDataSources"])
         )
+      end
+
+      def self.parse_resource_in_use_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceInUseException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::ResourceNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_policy_conflict_exception(value)
+        return nil if value.nil?
+
+        Types::ResourcePolicyConflictException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_policy_invalid_parameter_exception(value)
+        return nil if value.nil?
+
+        Types::ResourcePolicyInvalidParameterException.new(
+          parameter_names: parse_resource_policy_parameter_names_list(value["ParameterNames"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_policy_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::ResourcePolicyLimitExceededException.new(
+          limit: Aws::Runtime::Json.integer(value["Limit"]),
+          limit_type: Aws::Runtime::Json.string(value["LimitType"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_policy_not_found_exception(value)
+        return nil if value.nil?
+
+        Types::ResourcePolicyNotFoundException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_resource_policy_parameter_names_list(value)
+        return nil if value.nil?
+
+        value.map { |item| Aws::Runtime::Json.string(item) }
       end
 
       def self.parse_resume_session_response(value)
@@ -4291,6 +7091,18 @@ module Aws
         )
       end
 
+      def self.parse_service_quota_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::ServiceQuotaExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"]),
+          resource_id: Aws::Runtime::Json.string(value["ResourceId"]),
+          resource_type: Aws::Runtime::Json.string(value["ResourceType"]),
+          quota_code: Aws::Runtime::Json.string(value["QuotaCode"]),
+          service_code: Aws::Runtime::Json.string(value["ServiceCode"])
+        )
+      end
+
       def self.parse_service_setting(value)
         return nil if value.nil?
 
@@ -4301,6 +7113,14 @@ module Aws
           last_modified_user: Aws::Runtime::Json.string(value["LastModifiedUser"]),
           arn: Aws::Runtime::Json.string(value["ARN"]),
           status: Aws::Runtime::Json.string(value["Status"])
+        )
+      end
+
+      def self.parse_service_setting_not_found(value)
+        return nil if value.nil?
+
+        Types::ServiceSettingNotFound.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -4455,6 +7275,14 @@ module Aws
         )
       end
 
+      def self.parse_sub_type_count_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::SubTypeCountLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_tag(value)
         return nil if value.nil?
 
@@ -4476,6 +7304,14 @@ module Aws
         Types::Target.new(
           key: Aws::Runtime::Json.string(value["Key"]),
           values: parse_target_values(value["Values"])
+        )
+      end
+
+      def self.parse_target_in_use_exception(value)
+        return nil if value.nil?
+
+        Types::TargetInUseException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -4523,6 +7359,14 @@ module Aws
         value.map { |item| parse_target_map(item) }
       end
 
+      def self.parse_target_not_connected(value)
+        return nil if value.nil?
+
+        Types::TargetNotConnected.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_target_parameter_list(value)
         return nil if value.nil?
 
@@ -4564,12 +7408,103 @@ module Aws
         )
       end
 
+      def self.parse_throttling_exception(value)
+        return nil if value.nil?
+
+        Types::ThrottlingException.new(
+          message: Aws::Runtime::Json.string(value["Message"]),
+          quota_code: Aws::Runtime::Json.string(value["QuotaCode"]),
+          service_code: Aws::Runtime::Json.string(value["ServiceCode"])
+        )
+      end
+
+      def self.parse_too_many_updates(value)
+        return nil if value.nil?
+
+        Types::TooManyUpdates.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_total_size_limit_exceeded_exception(value)
+        return nil if value.nil?
+
+        Types::TotalSizeLimitExceededException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
       def self.parse_unlabel_parameter_version_result(value)
         return nil if value.nil?
 
         Types::UnlabelParameterVersionResult.new(
           removed_labels: parse_parameter_label_list(value["RemovedLabels"]),
           invalid_labels: parse_parameter_label_list(value["InvalidLabels"])
+        )
+      end
+
+      def self.parse_unsupported_calendar_exception(value)
+        return nil if value.nil?
+
+        Types::UnsupportedCalendarException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_unsupported_feature_required_exception(value)
+        return nil if value.nil?
+
+        Types::UnsupportedFeatureRequiredException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_unsupported_inventory_item_context_exception(value)
+        return nil if value.nil?
+
+        Types::UnsupportedInventoryItemContextException.new(
+          type_name: Aws::Runtime::Json.string(value["TypeName"]),
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_unsupported_inventory_schema_version_exception(value)
+        return nil if value.nil?
+
+        Types::UnsupportedInventorySchemaVersionException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_unsupported_operating_system(value)
+        return nil if value.nil?
+
+        Types::UnsupportedOperatingSystem.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_unsupported_operation_exception(value)
+        return nil if value.nil?
+
+        Types::UnsupportedOperationException.new(
+          message: Aws::Runtime::Json.string(value["Message"])
+        )
+      end
+
+      def self.parse_unsupported_parameter_type(value)
+        return nil if value.nil?
+
+        Types::UnsupportedParameterType.new(
+          message: Aws::Runtime::Json.string(value["message"])
+        )
+      end
+
+      def self.parse_unsupported_platform_type(value)
+        return nil if value.nil?
+
+        Types::UnsupportedPlatformType.new(
+          message: Aws::Runtime::Json.string(value["Message"])
         )
       end
 
@@ -4749,6 +7684,15 @@ module Aws
         Types::ValidateCloudConnectorResult.new(
           validation_findings: parse_validation_finding_list(value["ValidationFindings"]),
           next_token: Aws::Runtime::Json.string(value["NextToken"])
+        )
+      end
+
+      def self.parse_validation_exception(value)
+        return nil if value.nil?
+
+        Types::ValidationException.new(
+          message: Aws::Runtime::Json.string(value["Message"]),
+          reason_code: Aws::Runtime::Json.string(value["ReasonCode"])
         )
       end
 

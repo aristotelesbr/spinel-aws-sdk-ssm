@@ -188,6 +188,7 @@ module Aws
       end
 
       class InvalidItemContentException < ServiceError
+        def type_name = @data.type_name
       end
 
       class InvalidKeyId < ServiceError
@@ -257,9 +258,11 @@ module Aws
       end
 
       class ItemContentMismatchException < ServiceError
+        def type_name = @data.type_name
       end
 
       class ItemSizeLimitExceededException < ServiceError
+        def type_name = @data.type_name
       end
 
       class MalformedResourcePolicyDocumentException < ServiceError
@@ -275,21 +278,28 @@ module Aws
       end
 
       class OpsItemAlreadyExistsException < ServiceError
+        def ops_item_id = @data.ops_item_id
       end
 
       class OpsItemConflictException < ServiceError
       end
 
       class OpsItemInvalidParameterException < ServiceError
+        def parameter_names = @data.parameter_names
       end
 
       class OpsItemLimitExceededException < ServiceError
+        def resource_types = @data.resource_types
+        def limit = @data.limit
+        def limit_type = @data.limit_type
       end
 
       class OpsItemNotFoundException < ServiceError
       end
 
       class OpsItemRelatedItemAlreadyExistsException < ServiceError
+        def resource_uri = @data.resource_uri
+        def ops_item_id = @data.ops_item_id
       end
 
       class OpsItemRelatedItemAssociationNotFoundException < ServiceError
@@ -338,6 +348,7 @@ module Aws
       end
 
       class ResourceDataSyncAlreadyExistsException < ServiceError
+        def sync_name = @data.sync_name
       end
 
       class ResourceDataSyncConflictException < ServiceError
@@ -350,6 +361,8 @@ module Aws
       end
 
       class ResourceDataSyncNotFoundException < ServiceError
+        def sync_name = @data.sync_name
+        def sync_type = @data.sync_type
       end
 
       class ResourceInUseException < ServiceError
@@ -365,15 +378,22 @@ module Aws
       end
 
       class ResourcePolicyInvalidParameterException < ServiceError
+        def parameter_names = @data.parameter_names
       end
 
       class ResourcePolicyLimitExceededException < ServiceError
+        def limit = @data.limit
+        def limit_type = @data.limit_type
       end
 
       class ResourcePolicyNotFoundException < ServiceError
       end
 
       class ServiceQuotaExceededException < ServiceError
+        def resource_id = @data.resource_id
+        def resource_type = @data.resource_type
+        def quota_code = @data.quota_code
+        def service_code = @data.service_code
       end
 
       class ServiceSettingNotFound < ServiceError
@@ -392,6 +412,8 @@ module Aws
       end
 
       class ThrottlingException < ServiceError
+        def quota_code = @data.quota_code
+        def service_code = @data.service_code
       end
 
       class TooManyTagsError < ServiceError
@@ -410,6 +432,7 @@ module Aws
       end
 
       class UnsupportedInventoryItemContextException < ServiceError
+        def type_name = @data.type_name
       end
 
       class UnsupportedInventorySchemaVersionException < ServiceError
@@ -428,6 +451,7 @@ module Aws
       end
 
       class ValidationException < ServiceError
+        def reason_code = @data.reason_code
       end
 
       # Error codes any AWS service may return without its model listing
@@ -569,195 +593,195 @@ module Aws
 
       # The class for a code, named as the gem's DynamicErrors#error_class
       # names it; a code the model does not list gets ServiceError.
-      def self.error(code, context, message)
+      def self.error(code, context, message, data = Aws::EmptyStructure.new)
         constant = Aws::Runtime.error_constant(code)
         case constant
-        when "AccessDeniedException" then AccessDeniedException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AlreadyExistsException" then AlreadyExistsException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AssociatedInstances" then AssociatedInstances.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AssociationAlreadyExists" then AssociationAlreadyExists.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AssociationDoesNotExist" then AssociationDoesNotExist.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AssociationExecutionDoesNotExist" then AssociationExecutionDoesNotExist.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AssociationLimitExceeded" then AssociationLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AssociationVersionLimitExceeded" then AssociationVersionLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AutomationDefinitionNotApprovedException" then AutomationDefinitionNotApprovedException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AutomationDefinitionNotFoundException" then AutomationDefinitionNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AutomationDefinitionVersionNotFoundException" then AutomationDefinitionVersionNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AutomationExecutionLimitExceededException" then AutomationExecutionLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AutomationExecutionNotFoundException" then AutomationExecutionNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AutomationStepNotFoundException" then AutomationStepNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ComplianceTypeCountLimitExceededException" then ComplianceTypeCountLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ConflictException" then ConflictException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "CustomSchemaCountLimitExceededException" then CustomSchemaCountLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DocumentAlreadyExists" then DocumentAlreadyExists.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DocumentLimitExceeded" then DocumentLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DocumentPermissionLimit" then DocumentPermissionLimit.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DocumentVersionLimitExceeded" then DocumentVersionLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DoesNotExistException" then DoesNotExistException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DuplicateDocumentContent" then DuplicateDocumentContent.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DuplicateDocumentVersionName" then DuplicateDocumentVersionName.new(context, message, Aws::EmptyStructure.new, constant)
-        when "DuplicateInstanceId" then DuplicateInstanceId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "FeatureNotAvailableException" then FeatureNotAvailableException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "HierarchyLevelLimitExceededException" then HierarchyLevelLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "HierarchyTypeMismatchException" then HierarchyTypeMismatchException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "IdempotentParameterMismatch" then IdempotentParameterMismatch.new(context, message, Aws::EmptyStructure.new, constant)
-        when "IncompatiblePolicyException" then IncompatiblePolicyException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InternalServerError" then InternalServerError.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidActivation" then InvalidActivation.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidActivationId" then InvalidActivationId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAggregatorException" then InvalidAggregatorException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAllowedPatternException" then InvalidAllowedPatternException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAssociation" then InvalidAssociation.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAssociationVersion" then InvalidAssociationVersion.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAutomationExecutionParametersException" then InvalidAutomationExecutionParametersException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAutomationSignalException" then InvalidAutomationSignalException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAutomationStatusUpdateException" then InvalidAutomationStatusUpdateException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidCommandId" then InvalidCommandId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDeleteInventoryParametersException" then InvalidDeleteInventoryParametersException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDeletionIdException" then InvalidDeletionIdException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDocument" then InvalidDocument.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDocumentContent" then InvalidDocumentContent.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDocumentOperation" then InvalidDocumentOperation.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDocumentSchemaVersion" then InvalidDocumentSchemaVersion.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDocumentType" then InvalidDocumentType.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidDocumentVersion" then InvalidDocumentVersion.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidFilter" then InvalidFilter.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidFilterKey" then InvalidFilterKey.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidFilterOption" then InvalidFilterOption.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidFilterValue" then InvalidFilterValue.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidInstanceId" then InvalidInstanceId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidInstanceInformationFilterValue" then InvalidInstanceInformationFilterValue.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidInstancePropertyFilterValue" then InvalidInstancePropertyFilterValue.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidInventoryGroupException" then InvalidInventoryGroupException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidInventoryItemContextException" then InvalidInventoryItemContextException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidInventoryRequestException" then InvalidInventoryRequestException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidItemContentException" then InvalidItemContentException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidKeyId" then InvalidKeyId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidNextToken" then InvalidNextToken.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidNotificationConfig" then InvalidNotificationConfig.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidOptionException" then InvalidOptionException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidOutputFolder" then InvalidOutputFolder.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidOutputLocation" then InvalidOutputLocation.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidParameters" then InvalidParameters.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidPermissionType" then InvalidPermissionType.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidPluginName" then InvalidPluginName.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidPolicyAttributeException" then InvalidPolicyAttributeException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidPolicyTypeException" then InvalidPolicyTypeException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidResourceId" then InvalidResourceId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidResourceType" then InvalidResourceType.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidResultAttributeException" then InvalidResultAttributeException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidRole" then InvalidRole.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidSchedule" then InvalidSchedule.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidTag" then InvalidTag.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidTarget" then InvalidTarget.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidTargetMaps" then InvalidTargetMaps.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidTypeNameException" then InvalidTypeNameException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidUpdate" then InvalidUpdate.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvocationDoesNotExist" then InvocationDoesNotExist.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ItemContentMismatchException" then ItemContentMismatchException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ItemSizeLimitExceededException" then ItemSizeLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "MalformedResourcePolicyDocumentException" then MalformedResourcePolicyDocumentException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "MaxDocumentSizeExceeded" then MaxDocumentSizeExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "NoLongerSupportedException" then NoLongerSupportedException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemAccessDeniedException" then OpsItemAccessDeniedException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemAlreadyExistsException" then OpsItemAlreadyExistsException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemConflictException" then OpsItemConflictException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemInvalidParameterException" then OpsItemInvalidParameterException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemLimitExceededException" then OpsItemLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemNotFoundException" then OpsItemNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemRelatedItemAlreadyExistsException" then OpsItemRelatedItemAlreadyExistsException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsItemRelatedItemAssociationNotFoundException" then OpsItemRelatedItemAssociationNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsMetadataAlreadyExistsException" then OpsMetadataAlreadyExistsException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsMetadataInvalidArgumentException" then OpsMetadataInvalidArgumentException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsMetadataKeyLimitExceededException" then OpsMetadataKeyLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsMetadataLimitExceededException" then OpsMetadataLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsMetadataNotFoundException" then OpsMetadataNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OpsMetadataTooManyUpdatesException" then OpsMetadataTooManyUpdatesException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ParameterAlreadyExists" then ParameterAlreadyExists.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ParameterLimitExceeded" then ParameterLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ParameterMaxVersionLimitExceeded" then ParameterMaxVersionLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ParameterNotFound" then ParameterNotFound.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ParameterPatternMismatchException" then ParameterPatternMismatchException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ParameterVersionLabelLimitExceeded" then ParameterVersionLabelLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ParameterVersionNotFound" then ParameterVersionNotFound.new(context, message, Aws::EmptyStructure.new, constant)
-        when "PoliciesLimitExceededException" then PoliciesLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceDataSyncAlreadyExistsException" then ResourceDataSyncAlreadyExistsException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceDataSyncConflictException" then ResourceDataSyncConflictException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceDataSyncCountExceededException" then ResourceDataSyncCountExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceDataSyncInvalidConfigurationException" then ResourceDataSyncInvalidConfigurationException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceDataSyncNotFoundException" then ResourceDataSyncNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceInUseException" then ResourceInUseException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceLimitExceededException" then ResourceLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourceNotFoundException" then ResourceNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourcePolicyConflictException" then ResourcePolicyConflictException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourcePolicyInvalidParameterException" then ResourcePolicyInvalidParameterException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourcePolicyLimitExceededException" then ResourcePolicyLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ResourcePolicyNotFoundException" then ResourcePolicyNotFoundException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ServiceQuotaExceededException" then ServiceQuotaExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ServiceSettingNotFound" then ServiceSettingNotFound.new(context, message, Aws::EmptyStructure.new, constant)
-        when "StatusUnchanged" then StatusUnchanged.new(context, message, Aws::EmptyStructure.new, constant)
-        when "SubTypeCountLimitExceededException" then SubTypeCountLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "TargetInUseException" then TargetInUseException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "TargetNotConnected" then TargetNotConnected.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ThrottlingException" then ThrottlingException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "TooManyTagsError" then TooManyTagsError.new(context, message, Aws::EmptyStructure.new, constant)
-        when "TooManyUpdates" then TooManyUpdates.new(context, message, Aws::EmptyStructure.new, constant)
-        when "TotalSizeLimitExceededException" then TotalSizeLimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedCalendarException" then UnsupportedCalendarException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedFeatureRequiredException" then UnsupportedFeatureRequiredException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedInventoryItemContextException" then UnsupportedInventoryItemContextException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedInventorySchemaVersionException" then UnsupportedInventorySchemaVersionException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedOperatingSystem" then UnsupportedOperatingSystem.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedOperationException" then UnsupportedOperationException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedParameterType" then UnsupportedParameterType.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnsupportedPlatformType" then UnsupportedPlatformType.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ValidationException" then ValidationException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AccessDenied" then AccessDenied.new(context, message, Aws::EmptyStructure.new, constant)
-        when "AuthFailure" then AuthFailure.new(context, message, Aws::EmptyStructure.new, constant)
-        when "BadDigest" then BadDigest.new(context, message, Aws::EmptyStructure.new, constant)
-        when "BandwidthLimitExceeded" then BandwidthLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "CRC32CheckFailed" then CRC32CheckFailed.new(context, message, Aws::EmptyStructure.new, constant)
-        when "EC2ThrottledException" then EC2ThrottledException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ExpiredToken" then ExpiredToken.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ExpiredTokenException" then ExpiredTokenException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "IDPCommunicationError" then IDPCommunicationError.new(context, message, Aws::EmptyStructure.new, constant)
-        when "IncompleteSignature" then IncompleteSignature.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InternalError" then InternalError.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InternalFailure" then InternalFailure.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidAccessKeyId" then InvalidAccessKeyId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidClientTokenId" then InvalidClientTokenId.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidIdentityToken" then InvalidIdentityToken.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidParameterCombination" then InvalidParameterCombination.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidParameterValue" then InvalidParameterValue.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidQueryParameter" then InvalidQueryParameter.new(context, message, Aws::EmptyStructure.new, constant)
-        when "InvalidSignatureException" then InvalidSignatureException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "LimitExceededException" then LimitExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "MalformedQueryString" then MalformedQueryString.new(context, message, Aws::EmptyStructure.new, constant)
-        when "MissingAction" then MissingAction.new(context, message, Aws::EmptyStructure.new, constant)
-        when "MissingAuthenticationToken" then MissingAuthenticationToken.new(context, message, Aws::EmptyStructure.new, constant)
-        when "MissingParameter" then MissingParameter.new(context, message, Aws::EmptyStructure.new, constant)
-        when "NotAuthorized" then NotAuthorized.new(context, message, Aws::EmptyStructure.new, constant)
-        when "OptInRequired" then OptInRequired.new(context, message, Aws::EmptyStructure.new, constant)
-        when "PriorRequestNotComplete" then PriorRequestNotComplete.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ProvisionedThroughputExceededException" then ProvisionedThroughputExceededException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestExpired" then RequestExpired.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestInTheFuture" then RequestInTheFuture.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestLimitExceeded" then RequestLimitExceeded.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestThrottled" then RequestThrottled.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestThrottledException" then RequestThrottledException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestTimeTooSkewed" then RequestTimeTooSkewed.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestTimeout" then RequestTimeout.new(context, message, Aws::EmptyStructure.new, constant)
-        when "RequestTimeoutException" then RequestTimeoutException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ServiceUnavailable" then ServiceUnavailable.new(context, message, Aws::EmptyStructure.new, constant)
-        when "SignatureDoesNotMatch" then SignatureDoesNotMatch.new(context, message, Aws::EmptyStructure.new, constant)
-        when "SlowDown" then SlowDown.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ThrottledException" then ThrottledException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "Throttling" then Throttling.new(context, message, Aws::EmptyStructure.new, constant)
-        when "TooManyRequestsException" then TooManyRequestsException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "TransactionInProgressException" then TransactionInProgressException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "UnrecognizedClientException" then UnrecognizedClientException.new(context, message, Aws::EmptyStructure.new, constant)
-        when "ValidationError" then ValidationError.new(context, message, Aws::EmptyStructure.new, constant)
-        else ServiceError.new(context, message, Aws::EmptyStructure.new, constant)
+        when "AccessDeniedException" then AccessDeniedException.new(context, message, data, constant)
+        when "AlreadyExistsException" then AlreadyExistsException.new(context, message, data, constant)
+        when "AssociatedInstances" then AssociatedInstances.new(context, message, data, constant)
+        when "AssociationAlreadyExists" then AssociationAlreadyExists.new(context, message, data, constant)
+        when "AssociationDoesNotExist" then AssociationDoesNotExist.new(context, message, data, constant)
+        when "AssociationExecutionDoesNotExist" then AssociationExecutionDoesNotExist.new(context, message, data, constant)
+        when "AssociationLimitExceeded" then AssociationLimitExceeded.new(context, message, data, constant)
+        when "AssociationVersionLimitExceeded" then AssociationVersionLimitExceeded.new(context, message, data, constant)
+        when "AutomationDefinitionNotApprovedException" then AutomationDefinitionNotApprovedException.new(context, message, data, constant)
+        when "AutomationDefinitionNotFoundException" then AutomationDefinitionNotFoundException.new(context, message, data, constant)
+        when "AutomationDefinitionVersionNotFoundException" then AutomationDefinitionVersionNotFoundException.new(context, message, data, constant)
+        when "AutomationExecutionLimitExceededException" then AutomationExecutionLimitExceededException.new(context, message, data, constant)
+        when "AutomationExecutionNotFoundException" then AutomationExecutionNotFoundException.new(context, message, data, constant)
+        when "AutomationStepNotFoundException" then AutomationStepNotFoundException.new(context, message, data, constant)
+        when "ComplianceTypeCountLimitExceededException" then ComplianceTypeCountLimitExceededException.new(context, message, data, constant)
+        when "ConflictException" then ConflictException.new(context, message, data, constant)
+        when "CustomSchemaCountLimitExceededException" then CustomSchemaCountLimitExceededException.new(context, message, data, constant)
+        when "DocumentAlreadyExists" then DocumentAlreadyExists.new(context, message, data, constant)
+        when "DocumentLimitExceeded" then DocumentLimitExceeded.new(context, message, data, constant)
+        when "DocumentPermissionLimit" then DocumentPermissionLimit.new(context, message, data, constant)
+        when "DocumentVersionLimitExceeded" then DocumentVersionLimitExceeded.new(context, message, data, constant)
+        when "DoesNotExistException" then DoesNotExistException.new(context, message, data, constant)
+        when "DuplicateDocumentContent" then DuplicateDocumentContent.new(context, message, data, constant)
+        when "DuplicateDocumentVersionName" then DuplicateDocumentVersionName.new(context, message, data, constant)
+        when "DuplicateInstanceId" then DuplicateInstanceId.new(context, message, data, constant)
+        when "FeatureNotAvailableException" then FeatureNotAvailableException.new(context, message, data, constant)
+        when "HierarchyLevelLimitExceededException" then HierarchyLevelLimitExceededException.new(context, message, data, constant)
+        when "HierarchyTypeMismatchException" then HierarchyTypeMismatchException.new(context, message, data, constant)
+        when "IdempotentParameterMismatch" then IdempotentParameterMismatch.new(context, message, data, constant)
+        when "IncompatiblePolicyException" then IncompatiblePolicyException.new(context, message, data, constant)
+        when "InternalServerError" then InternalServerError.new(context, message, data, constant)
+        when "InvalidActivation" then InvalidActivation.new(context, message, data, constant)
+        when "InvalidActivationId" then InvalidActivationId.new(context, message, data, constant)
+        when "InvalidAggregatorException" then InvalidAggregatorException.new(context, message, data, constant)
+        when "InvalidAllowedPatternException" then InvalidAllowedPatternException.new(context, message, data, constant)
+        when "InvalidAssociation" then InvalidAssociation.new(context, message, data, constant)
+        when "InvalidAssociationVersion" then InvalidAssociationVersion.new(context, message, data, constant)
+        when "InvalidAutomationExecutionParametersException" then InvalidAutomationExecutionParametersException.new(context, message, data, constant)
+        when "InvalidAutomationSignalException" then InvalidAutomationSignalException.new(context, message, data, constant)
+        when "InvalidAutomationStatusUpdateException" then InvalidAutomationStatusUpdateException.new(context, message, data, constant)
+        when "InvalidCommandId" then InvalidCommandId.new(context, message, data, constant)
+        when "InvalidDeleteInventoryParametersException" then InvalidDeleteInventoryParametersException.new(context, message, data, constant)
+        when "InvalidDeletionIdException" then InvalidDeletionIdException.new(context, message, data, constant)
+        when "InvalidDocument" then InvalidDocument.new(context, message, data, constant)
+        when "InvalidDocumentContent" then InvalidDocumentContent.new(context, message, data, constant)
+        when "InvalidDocumentOperation" then InvalidDocumentOperation.new(context, message, data, constant)
+        when "InvalidDocumentSchemaVersion" then InvalidDocumentSchemaVersion.new(context, message, data, constant)
+        when "InvalidDocumentType" then InvalidDocumentType.new(context, message, data, constant)
+        when "InvalidDocumentVersion" then InvalidDocumentVersion.new(context, message, data, constant)
+        when "InvalidFilter" then InvalidFilter.new(context, message, data, constant)
+        when "InvalidFilterKey" then InvalidFilterKey.new(context, message, data, constant)
+        when "InvalidFilterOption" then InvalidFilterOption.new(context, message, data, constant)
+        when "InvalidFilterValue" then InvalidFilterValue.new(context, message, data, constant)
+        when "InvalidInstanceId" then InvalidInstanceId.new(context, message, data, constant)
+        when "InvalidInstanceInformationFilterValue" then InvalidInstanceInformationFilterValue.new(context, message, data, constant)
+        when "InvalidInstancePropertyFilterValue" then InvalidInstancePropertyFilterValue.new(context, message, data, constant)
+        when "InvalidInventoryGroupException" then InvalidInventoryGroupException.new(context, message, data, constant)
+        when "InvalidInventoryItemContextException" then InvalidInventoryItemContextException.new(context, message, data, constant)
+        when "InvalidInventoryRequestException" then InvalidInventoryRequestException.new(context, message, data, constant)
+        when "InvalidItemContentException" then InvalidItemContentException.new(context, message, data, constant)
+        when "InvalidKeyId" then InvalidKeyId.new(context, message, data, constant)
+        when "InvalidNextToken" then InvalidNextToken.new(context, message, data, constant)
+        when "InvalidNotificationConfig" then InvalidNotificationConfig.new(context, message, data, constant)
+        when "InvalidOptionException" then InvalidOptionException.new(context, message, data, constant)
+        when "InvalidOutputFolder" then InvalidOutputFolder.new(context, message, data, constant)
+        when "InvalidOutputLocation" then InvalidOutputLocation.new(context, message, data, constant)
+        when "InvalidParameters" then InvalidParameters.new(context, message, data, constant)
+        when "InvalidPermissionType" then InvalidPermissionType.new(context, message, data, constant)
+        when "InvalidPluginName" then InvalidPluginName.new(context, message, data, constant)
+        when "InvalidPolicyAttributeException" then InvalidPolicyAttributeException.new(context, message, data, constant)
+        when "InvalidPolicyTypeException" then InvalidPolicyTypeException.new(context, message, data, constant)
+        when "InvalidResourceId" then InvalidResourceId.new(context, message, data, constant)
+        when "InvalidResourceType" then InvalidResourceType.new(context, message, data, constant)
+        when "InvalidResultAttributeException" then InvalidResultAttributeException.new(context, message, data, constant)
+        when "InvalidRole" then InvalidRole.new(context, message, data, constant)
+        when "InvalidSchedule" then InvalidSchedule.new(context, message, data, constant)
+        when "InvalidTag" then InvalidTag.new(context, message, data, constant)
+        when "InvalidTarget" then InvalidTarget.new(context, message, data, constant)
+        when "InvalidTargetMaps" then InvalidTargetMaps.new(context, message, data, constant)
+        when "InvalidTypeNameException" then InvalidTypeNameException.new(context, message, data, constant)
+        when "InvalidUpdate" then InvalidUpdate.new(context, message, data, constant)
+        when "InvocationDoesNotExist" then InvocationDoesNotExist.new(context, message, data, constant)
+        when "ItemContentMismatchException" then ItemContentMismatchException.new(context, message, data, constant)
+        when "ItemSizeLimitExceededException" then ItemSizeLimitExceededException.new(context, message, data, constant)
+        when "MalformedResourcePolicyDocumentException" then MalformedResourcePolicyDocumentException.new(context, message, data, constant)
+        when "MaxDocumentSizeExceeded" then MaxDocumentSizeExceeded.new(context, message, data, constant)
+        when "NoLongerSupportedException" then NoLongerSupportedException.new(context, message, data, constant)
+        when "OpsItemAccessDeniedException" then OpsItemAccessDeniedException.new(context, message, data, constant)
+        when "OpsItemAlreadyExistsException" then OpsItemAlreadyExistsException.new(context, message, data, constant)
+        when "OpsItemConflictException" then OpsItemConflictException.new(context, message, data, constant)
+        when "OpsItemInvalidParameterException" then OpsItemInvalidParameterException.new(context, message, data, constant)
+        when "OpsItemLimitExceededException" then OpsItemLimitExceededException.new(context, message, data, constant)
+        when "OpsItemNotFoundException" then OpsItemNotFoundException.new(context, message, data, constant)
+        when "OpsItemRelatedItemAlreadyExistsException" then OpsItemRelatedItemAlreadyExistsException.new(context, message, data, constant)
+        when "OpsItemRelatedItemAssociationNotFoundException" then OpsItemRelatedItemAssociationNotFoundException.new(context, message, data, constant)
+        when "OpsMetadataAlreadyExistsException" then OpsMetadataAlreadyExistsException.new(context, message, data, constant)
+        when "OpsMetadataInvalidArgumentException" then OpsMetadataInvalidArgumentException.new(context, message, data, constant)
+        when "OpsMetadataKeyLimitExceededException" then OpsMetadataKeyLimitExceededException.new(context, message, data, constant)
+        when "OpsMetadataLimitExceededException" then OpsMetadataLimitExceededException.new(context, message, data, constant)
+        when "OpsMetadataNotFoundException" then OpsMetadataNotFoundException.new(context, message, data, constant)
+        when "OpsMetadataTooManyUpdatesException" then OpsMetadataTooManyUpdatesException.new(context, message, data, constant)
+        when "ParameterAlreadyExists" then ParameterAlreadyExists.new(context, message, data, constant)
+        when "ParameterLimitExceeded" then ParameterLimitExceeded.new(context, message, data, constant)
+        when "ParameterMaxVersionLimitExceeded" then ParameterMaxVersionLimitExceeded.new(context, message, data, constant)
+        when "ParameterNotFound" then ParameterNotFound.new(context, message, data, constant)
+        when "ParameterPatternMismatchException" then ParameterPatternMismatchException.new(context, message, data, constant)
+        when "ParameterVersionLabelLimitExceeded" then ParameterVersionLabelLimitExceeded.new(context, message, data, constant)
+        when "ParameterVersionNotFound" then ParameterVersionNotFound.new(context, message, data, constant)
+        when "PoliciesLimitExceededException" then PoliciesLimitExceededException.new(context, message, data, constant)
+        when "ResourceDataSyncAlreadyExistsException" then ResourceDataSyncAlreadyExistsException.new(context, message, data, constant)
+        when "ResourceDataSyncConflictException" then ResourceDataSyncConflictException.new(context, message, data, constant)
+        when "ResourceDataSyncCountExceededException" then ResourceDataSyncCountExceededException.new(context, message, data, constant)
+        when "ResourceDataSyncInvalidConfigurationException" then ResourceDataSyncInvalidConfigurationException.new(context, message, data, constant)
+        when "ResourceDataSyncNotFoundException" then ResourceDataSyncNotFoundException.new(context, message, data, constant)
+        when "ResourceInUseException" then ResourceInUseException.new(context, message, data, constant)
+        when "ResourceLimitExceededException" then ResourceLimitExceededException.new(context, message, data, constant)
+        when "ResourceNotFoundException" then ResourceNotFoundException.new(context, message, data, constant)
+        when "ResourcePolicyConflictException" then ResourcePolicyConflictException.new(context, message, data, constant)
+        when "ResourcePolicyInvalidParameterException" then ResourcePolicyInvalidParameterException.new(context, message, data, constant)
+        when "ResourcePolicyLimitExceededException" then ResourcePolicyLimitExceededException.new(context, message, data, constant)
+        when "ResourcePolicyNotFoundException" then ResourcePolicyNotFoundException.new(context, message, data, constant)
+        when "ServiceQuotaExceededException" then ServiceQuotaExceededException.new(context, message, data, constant)
+        when "ServiceSettingNotFound" then ServiceSettingNotFound.new(context, message, data, constant)
+        when "StatusUnchanged" then StatusUnchanged.new(context, message, data, constant)
+        when "SubTypeCountLimitExceededException" then SubTypeCountLimitExceededException.new(context, message, data, constant)
+        when "TargetInUseException" then TargetInUseException.new(context, message, data, constant)
+        when "TargetNotConnected" then TargetNotConnected.new(context, message, data, constant)
+        when "ThrottlingException" then ThrottlingException.new(context, message, data, constant)
+        when "TooManyTagsError" then TooManyTagsError.new(context, message, data, constant)
+        when "TooManyUpdates" then TooManyUpdates.new(context, message, data, constant)
+        when "TotalSizeLimitExceededException" then TotalSizeLimitExceededException.new(context, message, data, constant)
+        when "UnsupportedCalendarException" then UnsupportedCalendarException.new(context, message, data, constant)
+        when "UnsupportedFeatureRequiredException" then UnsupportedFeatureRequiredException.new(context, message, data, constant)
+        when "UnsupportedInventoryItemContextException" then UnsupportedInventoryItemContextException.new(context, message, data, constant)
+        when "UnsupportedInventorySchemaVersionException" then UnsupportedInventorySchemaVersionException.new(context, message, data, constant)
+        when "UnsupportedOperatingSystem" then UnsupportedOperatingSystem.new(context, message, data, constant)
+        when "UnsupportedOperationException" then UnsupportedOperationException.new(context, message, data, constant)
+        when "UnsupportedParameterType" then UnsupportedParameterType.new(context, message, data, constant)
+        when "UnsupportedPlatformType" then UnsupportedPlatformType.new(context, message, data, constant)
+        when "ValidationException" then ValidationException.new(context, message, data, constant)
+        when "AccessDenied" then AccessDenied.new(context, message, data, constant)
+        when "AuthFailure" then AuthFailure.new(context, message, data, constant)
+        when "BadDigest" then BadDigest.new(context, message, data, constant)
+        when "BandwidthLimitExceeded" then BandwidthLimitExceeded.new(context, message, data, constant)
+        when "CRC32CheckFailed" then CRC32CheckFailed.new(context, message, data, constant)
+        when "EC2ThrottledException" then EC2ThrottledException.new(context, message, data, constant)
+        when "ExpiredToken" then ExpiredToken.new(context, message, data, constant)
+        when "ExpiredTokenException" then ExpiredTokenException.new(context, message, data, constant)
+        when "IDPCommunicationError" then IDPCommunicationError.new(context, message, data, constant)
+        when "IncompleteSignature" then IncompleteSignature.new(context, message, data, constant)
+        when "InternalError" then InternalError.new(context, message, data, constant)
+        when "InternalFailure" then InternalFailure.new(context, message, data, constant)
+        when "InvalidAccessKeyId" then InvalidAccessKeyId.new(context, message, data, constant)
+        when "InvalidClientTokenId" then InvalidClientTokenId.new(context, message, data, constant)
+        when "InvalidIdentityToken" then InvalidIdentityToken.new(context, message, data, constant)
+        when "InvalidParameterCombination" then InvalidParameterCombination.new(context, message, data, constant)
+        when "InvalidParameterValue" then InvalidParameterValue.new(context, message, data, constant)
+        when "InvalidQueryParameter" then InvalidQueryParameter.new(context, message, data, constant)
+        when "InvalidSignatureException" then InvalidSignatureException.new(context, message, data, constant)
+        when "LimitExceededException" then LimitExceededException.new(context, message, data, constant)
+        when "MalformedQueryString" then MalformedQueryString.new(context, message, data, constant)
+        when "MissingAction" then MissingAction.new(context, message, data, constant)
+        when "MissingAuthenticationToken" then MissingAuthenticationToken.new(context, message, data, constant)
+        when "MissingParameter" then MissingParameter.new(context, message, data, constant)
+        when "NotAuthorized" then NotAuthorized.new(context, message, data, constant)
+        when "OptInRequired" then OptInRequired.new(context, message, data, constant)
+        when "PriorRequestNotComplete" then PriorRequestNotComplete.new(context, message, data, constant)
+        when "ProvisionedThroughputExceededException" then ProvisionedThroughputExceededException.new(context, message, data, constant)
+        when "RequestExpired" then RequestExpired.new(context, message, data, constant)
+        when "RequestInTheFuture" then RequestInTheFuture.new(context, message, data, constant)
+        when "RequestLimitExceeded" then RequestLimitExceeded.new(context, message, data, constant)
+        when "RequestThrottled" then RequestThrottled.new(context, message, data, constant)
+        when "RequestThrottledException" then RequestThrottledException.new(context, message, data, constant)
+        when "RequestTimeTooSkewed" then RequestTimeTooSkewed.new(context, message, data, constant)
+        when "RequestTimeout" then RequestTimeout.new(context, message, data, constant)
+        when "RequestTimeoutException" then RequestTimeoutException.new(context, message, data, constant)
+        when "ServiceUnavailable" then ServiceUnavailable.new(context, message, data, constant)
+        when "SignatureDoesNotMatch" then SignatureDoesNotMatch.new(context, message, data, constant)
+        when "SlowDown" then SlowDown.new(context, message, data, constant)
+        when "ThrottledException" then ThrottledException.new(context, message, data, constant)
+        when "Throttling" then Throttling.new(context, message, data, constant)
+        when "TooManyRequestsException" then TooManyRequestsException.new(context, message, data, constant)
+        when "TransactionInProgressException" then TransactionInProgressException.new(context, message, data, constant)
+        when "UnrecognizedClientException" then UnrecognizedClientException.new(context, message, data, constant)
+        when "ValidationError" then ValidationError.new(context, message, data, constant)
+        else ServiceError.new(context, message, data, constant)
         end
       end
     end

@@ -1,0 +1,20 @@
+stubbed code: Aws::SSM::Errors::ParameterNotFound ParameterNotFound "stubbed-response-error-message"
+stubbed code data: Aws::SSM::Types::ParameterNotFound {message: "stubbed-response-error-message"}
+stubbed code message member: "stubbed-response-error-message"
+sync exists: Aws::SSM::Errors::ResourceDataSyncAlreadyExistsException ResourceDataSyncAlreadyExistsException "Aws::SSM::Errors::ResourceDataSyncAlreadyExistsException"
+sync exists data: Aws::SSM::Types::ResourceDataSyncAlreadyExistsException {sync_name: "s1"}
+sync exists reader: s1 s1
+limit: Aws::SSM::Errors::OpsItemLimitExceededException OpsItemLimitExceededException "too many"
+limit data: Aws::SSM::Types::OpsItemLimitExceededException {resource_types: ["a", "b"], limit: 5, limit_type: "OpsItem", message: "too many"}
+limit readers: ["a", "b"] 5 OpsItem
+not found: Aws::SSM::Errors::ResourceDataSyncNotFoundException ResourceDataSyncNotFoundException "gone"
+not found data: Aws::SSM::Types::ResourceDataSyncNotFoundException {sync_name: "s2", sync_type: "SyncToDestination", message: "gone"}
+not found readers: s2 SyncToDestination
+not the operation's: Aws::SSM::Errors::ResourceDataSyncAlreadyExistsException ResourceDataSyncAlreadyExistsException "Aws::SSM::Errors::ResourceDataSyncAlreadyExistsException"
+not the operation's data: Aws::EmptyStructure {}
+no message: Aws::SSM::Errors::ParameterNotFound ParameterNotFound "Aws::SSM::Errors::ParameterNotFound"
+no message data: Aws::SSM::Types::ParameterNotFound {}
+not json: Http500Error data: Aws::EmptyStructure {}
+stubbed throttling: Aws::SSM::Errors::ThrottlingException ThrottlingException "stubbed-response-error-message"
+stubbed throttling data: Aws::SSM::Types::ThrottlingException {}
+stubbed throttling readers: nil nil

@@ -103,7 +103,7 @@ def failure(label, ssm, modeled = true)
 rescue Aws::SSM::Errors::ServiceError => e
   # A code the model does not list gets a class the gem creates at run time.
   detail = modeled ? "#{e.class} #{e.message}" : "(unmodeled) #{e.message}"
-  puts "#{label}: #{e.code} #{detail}"
+  puts "#{label}: #{e.code} #{detail} data: #{e.data.class} #{e.data.to_h}"
 end
 
 endpoint = "http://127.0.0.1:#{port}"

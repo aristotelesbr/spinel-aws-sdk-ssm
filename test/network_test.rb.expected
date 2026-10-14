@@ -1,8 +1,8 @@
 put: 1 Standard
 get: /app/TOKEN s3cr3t 1 1700000000 arn:aws:ssm:sa-east-1:123456789012:parameter/app/TOKEN
-not found: ParameterNotFound Aws::SSM::Errors::ParameterNotFound Parameter /missing not found.
-header code: ParameterNotFound Aws::SSM::Errors::ParameterNotFound Aws::SSM::Errors::ParameterNotFound
-unmodeled: SomethingNew (unmodeled) new
+not found: ParameterNotFound Aws::SSM::Errors::ParameterNotFound Parameter /missing not found. data: Aws::SSM::Types::ParameterNotFound {message: "Parameter /missing not found."}
+header code: ParameterNotFound Aws::SSM::Errors::ParameterNotFound Aws::SSM::Errors::ParameterNotFound data: Aws::SSM::Types::ParameterNotFound {}
+unmodeled: SomethingNew (unmodeled) new data: Aws::EmptyStructure {}
 legacy retry: s3cr3t retries=1 sleeps=[0.3]
 standard retry: s3cr3t retries=2 sleeps=[0.5, 1.0]
 put: POST / HTTP/1.1
