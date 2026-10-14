@@ -1,0 +1,8 @@
+waiter_names: [:command_executed]
+success: Success attempts=[0, 1, 2] waits=["1:Pending", "2:InProgress"]
+failure: Aws::Waiters::Errors::FailureStateError stopped waiting, encountered a failure state Failed true
+retry on error: Success
+unexpected: Aws::Waiters::Errors::UnexpectedError stopped waiting due to an unexpected error: stubbed-response-error-message Aws::SSM::Errors::InvalidCommandId InvalidCommandId
+too many: Aws::Waiters::Errors::TooManyAttemptsError stopped waiting after 3 attempts without success 3
+no such waiter: Aws::Waiters::Errors::NoSuchWaiterError no such waiter :instance_running; valid waiter names are: :command_executed true
+waiter class: 5 0 Success

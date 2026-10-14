@@ -175,6 +175,18 @@ module Aws
         end
       end
 
+      def wait_until(waiter_name, params = {}, options = {})
+        w =
+          case waiter_name
+          when :command_executed then Waiters::CommandExecuted.new(options.merge(client: self))
+          else raise Aws::Waiters::Errors::NoSuchWaiterError.new(waiter_name, waiter_names)
+          end
+        yield(w.waiter) if block_given?
+        w.wait(params)
+      end
+
+      def waiter_names = [:command_executed]
+
       def add_tags_to_resource(params = {}, options = {})
         body = Serializers.add_tags_to_resource(params)
         stub = next_stub(:add_tags_to_resource)

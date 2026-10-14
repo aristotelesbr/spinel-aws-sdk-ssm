@@ -9,6 +9,7 @@ require "aws-sdk-ssm/serializers"
 require "aws-sdk-ssm/parsers"
 require "aws-sdk-ssm/stubs"
 require "aws-sdk-ssm/client"
+require "aws-sdk-ssm/waiters"
 
 module Aws
   module SSM
