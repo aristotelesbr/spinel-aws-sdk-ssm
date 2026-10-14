@@ -1,0 +1,11 @@
+default: true false nil
+default next_page: Aws::PageableResponse::LastPageError unable to fetch next page, end of results reached true
+page 1: /app/a "t1" false {"Path":"/app","Recursive":true}
+page 2: /app/b,/app/c "t2" false {"Path":"/app","Recursive":true,"NextToken":"t1"}
+page 3: /app/d nil true {"Path":"/app","Recursive":true,"NextToken":"t2"}
+each_page returns: nil
+next_page with params: {"Path":"/app","MaxResults":5,"NextToken":"t1","WithDecryption":true}
+empty token: true
+same token: true
+new token: false
+no paginator: true false 1

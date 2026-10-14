@@ -1,5 +1,5 @@
 gem:       aws-sdk-ssm 1.223.0 (rubygems.org)
 models:    aws/aws-sdk-ruby 1113d9b05fdf26bbf147e4c4936a9e446ae27ad5, apis/ssm/2014-11-06
 oracle:    CRuby 4.0.2 with aws-sdk-core 3.257.0 and aws-sdk-ssm 1.223.0 (oracle/Gemfile)
-codegen:   spinel-aws-sdk-codegen 893665b (aws-sdk-ssm.rb, aws-sdk-ssm/)
+codegen:   spinel-aws-sdk-codegen f317d6c (aws-sdk-ssm.rb, aws-sdk-ssm/)
 operations: all 152 of the model

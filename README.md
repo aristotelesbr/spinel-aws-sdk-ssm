@@ -59,8 +59,10 @@ and generator versions.
 
 ## Known gaps
 
-- No paginators (`each_page`, `next_page`) and no waiters. Pass `next_token`
-  yourself.
+- No waiters.
+- A response pages with `each_page` (or `each` with a block), `next_page`,
+  `next_page?` and `last_page?`, as the gem's. Its Enumerable methods
+  (`map`, `flat_map`, ...) and `each` without a block are not included.
 - No `Aws::SSM::Resource`.
 - An error code the model does not list raises
   `Aws::SSM::Errors::ServiceError` with that code. The gem creates a class
@@ -91,6 +93,8 @@ The tests cover:
 - `errors_test.rb`: an error's data and readers, from a stubbed code and a
   raw JSON body, for a code the operation does not list and a body that is
   not JSON;
+- `pagination_test.rb`: `each_page` over stubbed pages, the request each
+  next page sends, `next_page` with params, and the last page;
 - `union_test.rb`: unions from a default stub, a Hash and a JSON response,
   an unknown member, and unions in a request body;
 - `network_test.rb`: requests, signatures, error codes and retries against

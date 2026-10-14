@@ -682,7 +682,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeActivations", JSON_VERSION, body, true)
           data = Parsers.describe_activations(json)
         end
-        Responses::DescribeActivations.new(data, request_context(body))
+        Responses::DescribeActivations.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_activations_error_data(e.code, e.body))
       end
@@ -714,7 +714,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeAssociationExecutionTargets", JSON_VERSION, body, true)
           data = Parsers.describe_association_execution_targets(json)
         end
-        Responses::DescribeAssociationExecutionTargets.new(data, request_context(body))
+        Responses::DescribeAssociationExecutionTargets.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_association_execution_targets_error_data(e.code, e.body))
       end
@@ -730,7 +730,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeAssociationExecutions", JSON_VERSION, body, true)
           data = Parsers.describe_association_executions(json)
         end
-        Responses::DescribeAssociationExecutions.new(data, request_context(body))
+        Responses::DescribeAssociationExecutions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_association_executions_error_data(e.code, e.body))
       end
@@ -746,7 +746,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeAutomationExecutions", JSON_VERSION, body, true)
           data = Parsers.describe_automation_executions(json)
         end
-        Responses::DescribeAutomationExecutions.new(data, request_context(body))
+        Responses::DescribeAutomationExecutions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_automation_executions_error_data(e.code, e.body))
       end
@@ -762,7 +762,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeAutomationStepExecutions", JSON_VERSION, body, true)
           data = Parsers.describe_automation_step_executions(json)
         end
-        Responses::DescribeAutomationStepExecutions.new(data, request_context(body))
+        Responses::DescribeAutomationStepExecutions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_automation_step_executions_error_data(e.code, e.body))
       end
@@ -778,7 +778,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeAvailablePatches", JSON_VERSION, body, true)
           data = Parsers.describe_available_patches(json)
         end
-        Responses::DescribeAvailablePatches.new(data, request_context(body))
+        Responses::DescribeAvailablePatches.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_available_patches_error_data(e.code, e.body))
       end
@@ -826,7 +826,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeEffectiveInstanceAssociations", JSON_VERSION, body, true)
           data = Parsers.describe_effective_instance_associations(json)
         end
-        Responses::DescribeEffectiveInstanceAssociations.new(data, request_context(body))
+        Responses::DescribeEffectiveInstanceAssociations.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_effective_instance_associations_error_data(e.code, e.body))
       end
@@ -842,7 +842,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeEffectivePatchesForPatchBaseline", JSON_VERSION, body, true)
           data = Parsers.describe_effective_patches_for_patch_baseline(json)
         end
-        Responses::DescribeEffectivePatchesForPatchBaseline.new(data, request_context(body))
+        Responses::DescribeEffectivePatchesForPatchBaseline.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_effective_patches_for_patch_baseline_error_data(e.code, e.body))
       end
@@ -858,7 +858,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeInstanceAssociationsStatus", JSON_VERSION, body, true)
           data = Parsers.describe_instance_associations_status(json)
         end
-        Responses::DescribeInstanceAssociationsStatus.new(data, request_context(body))
+        Responses::DescribeInstanceAssociationsStatus.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_associations_status_error_data(e.code, e.body))
       end
@@ -874,7 +874,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeInstanceInformation", JSON_VERSION, body, true)
           data = Parsers.describe_instance_information(json)
         end
-        Responses::DescribeInstanceInformation.new(data, request_context(body))
+        Responses::DescribeInstanceInformation.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_information_error_data(e.code, e.body))
       end
@@ -890,7 +890,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeInstancePatchStates", JSON_VERSION, body, true)
           data = Parsers.describe_instance_patch_states(json)
         end
-        Responses::DescribeInstancePatchStates.new(data, request_context(body))
+        Responses::DescribeInstancePatchStates.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_patch_states_error_data(e.code, e.body))
       end
@@ -906,7 +906,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeInstancePatchStatesForPatchGroup", JSON_VERSION, body, true)
           data = Parsers.describe_instance_patch_states_for_patch_group(json)
         end
-        Responses::DescribeInstancePatchStatesForPatchGroup.new(data, request_context(body))
+        Responses::DescribeInstancePatchStatesForPatchGroup.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_patch_states_for_patch_group_error_data(e.code, e.body))
       end
@@ -922,7 +922,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeInstancePatches", JSON_VERSION, body, true)
           data = Parsers.describe_instance_patches(json)
         end
-        Responses::DescribeInstancePatches.new(data, request_context(body))
+        Responses::DescribeInstancePatches.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_patches_error_data(e.code, e.body))
       end
@@ -938,7 +938,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeInstanceProperties", JSON_VERSION, body, true)
           data = Parsers.describe_instance_properties(json)
         end
-        Responses::DescribeInstanceProperties.new(data, request_context(body))
+        Responses::DescribeInstanceProperties.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_instance_properties_error_data(e.code, e.body))
       end
@@ -954,7 +954,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeInventoryDeletions", JSON_VERSION, body, true)
           data = Parsers.describe_inventory_deletions(json)
         end
-        Responses::DescribeInventoryDeletions.new(data, request_context(body))
+        Responses::DescribeInventoryDeletions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_inventory_deletions_error_data(e.code, e.body))
       end
@@ -970,7 +970,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindowExecutionTaskInvocations", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_window_execution_task_invocations(json)
         end
-        Responses::DescribeMaintenanceWindowExecutionTaskInvocations.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindowExecutionTaskInvocations.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_execution_task_invocations_error_data(e.code, e.body))
       end
@@ -986,7 +986,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindowExecutionTasks", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_window_execution_tasks(json)
         end
-        Responses::DescribeMaintenanceWindowExecutionTasks.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindowExecutionTasks.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_execution_tasks_error_data(e.code, e.body))
       end
@@ -1002,7 +1002,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindowExecutions", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_window_executions(json)
         end
-        Responses::DescribeMaintenanceWindowExecutions.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindowExecutions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_executions_error_data(e.code, e.body))
       end
@@ -1018,7 +1018,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindowSchedule", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_window_schedule(json)
         end
-        Responses::DescribeMaintenanceWindowSchedule.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindowSchedule.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_schedule_error_data(e.code, e.body))
       end
@@ -1034,7 +1034,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindowTargets", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_window_targets(json)
         end
-        Responses::DescribeMaintenanceWindowTargets.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindowTargets.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_targets_error_data(e.code, e.body))
       end
@@ -1050,7 +1050,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindowTasks", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_window_tasks(json)
         end
-        Responses::DescribeMaintenanceWindowTasks.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindowTasks.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_window_tasks_error_data(e.code, e.body))
       end
@@ -1066,7 +1066,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindows", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_windows(json)
         end
-        Responses::DescribeMaintenanceWindows.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindows.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_windows_error_data(e.code, e.body))
       end
@@ -1082,7 +1082,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeMaintenanceWindowsForTarget", JSON_VERSION, body, true)
           data = Parsers.describe_maintenance_windows_for_target(json)
         end
-        Responses::DescribeMaintenanceWindowsForTarget.new(data, request_context(body))
+        Responses::DescribeMaintenanceWindowsForTarget.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_maintenance_windows_for_target_error_data(e.code, e.body))
       end
@@ -1098,7 +1098,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeOpsItems", JSON_VERSION, body, true)
           data = Parsers.describe_ops_items(json)
         end
-        Responses::DescribeOpsItems.new(data, request_context(body))
+        Responses::DescribeOpsItems.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_ops_items_error_data(e.code, e.body))
       end
@@ -1114,7 +1114,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeParameters", JSON_VERSION, body, true)
           data = Parsers.describe_parameters(json)
         end
-        Responses::DescribeParameters.new(data, request_context(body))
+        Responses::DescribeParameters.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_parameters_error_data(e.code, e.body))
       end
@@ -1130,7 +1130,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribePatchBaselines", JSON_VERSION, body, true)
           data = Parsers.describe_patch_baselines(json)
         end
-        Responses::DescribePatchBaselines.new(data, request_context(body))
+        Responses::DescribePatchBaselines.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_patch_baselines_error_data(e.code, e.body))
       end
@@ -1162,7 +1162,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribePatchGroups", JSON_VERSION, body, true)
           data = Parsers.describe_patch_groups(json)
         end
-        Responses::DescribePatchGroups.new(data, request_context(body))
+        Responses::DescribePatchGroups.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_patch_groups_error_data(e.code, e.body))
       end
@@ -1178,7 +1178,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribePatchProperties", JSON_VERSION, body, true)
           data = Parsers.describe_patch_properties(json)
         end
-        Responses::DescribePatchProperties.new(data, request_context(body))
+        Responses::DescribePatchProperties.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_patch_properties_error_data(e.code, e.body))
       end
@@ -1194,7 +1194,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.DescribeSessions", JSON_VERSION, body, true)
           data = Parsers.describe_sessions(json)
         end
-        Responses::DescribeSessions.new(data, request_context(body))
+        Responses::DescribeSessions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.describe_sessions_error_data(e.code, e.body))
       end
@@ -1386,7 +1386,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.GetInventory", JSON_VERSION, body, true)
           data = Parsers.get_inventory(json)
         end
-        Responses::GetInventory.new(data, request_context(body))
+        Responses::GetInventory.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.get_inventory_error_data(e.code, e.body))
       end
@@ -1402,7 +1402,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.GetInventorySchema", JSON_VERSION, body, true)
           data = Parsers.get_inventory_schema(json)
         end
-        Responses::GetInventorySchema.new(data, request_context(body))
+        Responses::GetInventorySchema.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.get_inventory_schema_error_data(e.code, e.body))
       end
@@ -1530,7 +1530,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.GetOpsSummary", JSON_VERSION, body, true)
           data = Parsers.get_ops_summary(json)
         end
-        Responses::GetOpsSummary.new(data, request_context(body))
+        Responses::GetOpsSummary.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.get_ops_summary_error_data(e.code, e.body))
       end
@@ -1562,7 +1562,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.GetParameterHistory", JSON_VERSION, body, true)
           data = Parsers.get_parameter_history(json)
         end
-        Responses::GetParameterHistory.new(data, request_context(body))
+        Responses::GetParameterHistory.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.get_parameter_history_error_data(e.code, e.body))
       end
@@ -1594,7 +1594,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.GetParametersByPath", JSON_VERSION, body, true)
           data = Parsers.get_parameters_by_path(json)
         end
-        Responses::GetParametersByPath.new(data, request_context(body))
+        Responses::GetParametersByPath.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.get_parameters_by_path_error_data(e.code, e.body))
       end
@@ -1642,7 +1642,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.GetResourcePolicies", JSON_VERSION, body, true)
           data = Parsers.get_resource_policies(json)
         end
-        Responses::GetResourcePolicies.new(data, request_context(body))
+        Responses::GetResourcePolicies.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.get_resource_policies_error_data(e.code, e.body))
       end
@@ -1690,7 +1690,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListAssociationVersions", JSON_VERSION, body, true)
           data = Parsers.list_association_versions(json)
         end
-        Responses::ListAssociationVersions.new(data, request_context(body))
+        Responses::ListAssociationVersions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_association_versions_error_data(e.code, e.body))
       end
@@ -1706,7 +1706,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListAssociations", JSON_VERSION, body, true)
           data = Parsers.list_associations(json)
         end
-        Responses::ListAssociations.new(data, request_context(body))
+        Responses::ListAssociations.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_associations_error_data(e.code, e.body))
       end
@@ -1722,7 +1722,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListCloudConnectors", JSON_VERSION, body, true)
           data = Parsers.list_cloud_connectors(json)
         end
-        Responses::ListCloudConnectors.new(data, request_context(body))
+        Responses::ListCloudConnectors.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_cloud_connectors_error_data(e.code, e.body))
       end
@@ -1738,7 +1738,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListCommandInvocations", JSON_VERSION, body, true)
           data = Parsers.list_command_invocations(json)
         end
-        Responses::ListCommandInvocations.new(data, request_context(body))
+        Responses::ListCommandInvocations.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_command_invocations_error_data(e.code, e.body))
       end
@@ -1754,7 +1754,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListCommands", JSON_VERSION, body, true)
           data = Parsers.list_commands(json)
         end
-        Responses::ListCommands.new(data, request_context(body))
+        Responses::ListCommands.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_commands_error_data(e.code, e.body))
       end
@@ -1770,7 +1770,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListComplianceItems", JSON_VERSION, body, true)
           data = Parsers.list_compliance_items(json)
         end
-        Responses::ListComplianceItems.new(data, request_context(body))
+        Responses::ListComplianceItems.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_compliance_items_error_data(e.code, e.body))
       end
@@ -1786,7 +1786,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListComplianceSummaries", JSON_VERSION, body, true)
           data = Parsers.list_compliance_summaries(json)
         end
-        Responses::ListComplianceSummaries.new(data, request_context(body))
+        Responses::ListComplianceSummaries.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_compliance_summaries_error_data(e.code, e.body))
       end
@@ -1818,7 +1818,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListDocumentVersions", JSON_VERSION, body, true)
           data = Parsers.list_document_versions(json)
         end
-        Responses::ListDocumentVersions.new(data, request_context(body))
+        Responses::ListDocumentVersions.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_document_versions_error_data(e.code, e.body))
       end
@@ -1834,7 +1834,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListDocuments", JSON_VERSION, body, true)
           data = Parsers.list_documents(json)
         end
-        Responses::ListDocuments.new(data, request_context(body))
+        Responses::ListDocuments.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_documents_error_data(e.code, e.body))
       end
@@ -1866,7 +1866,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListNodes", JSON_VERSION, body, true)
           data = Parsers.list_nodes(json)
         end
-        Responses::ListNodes.new(data, request_context(body))
+        Responses::ListNodes.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_nodes_error_data(e.code, e.body))
       end
@@ -1882,7 +1882,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListNodesSummary", JSON_VERSION, body, true)
           data = Parsers.list_nodes_summary(json)
         end
-        Responses::ListNodesSummary.new(data, request_context(body))
+        Responses::ListNodesSummary.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_nodes_summary_error_data(e.code, e.body))
       end
@@ -1898,7 +1898,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListOpsItemEvents", JSON_VERSION, body, true)
           data = Parsers.list_ops_item_events(json)
         end
-        Responses::ListOpsItemEvents.new(data, request_context(body))
+        Responses::ListOpsItemEvents.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_ops_item_events_error_data(e.code, e.body))
       end
@@ -1914,7 +1914,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListOpsItemRelatedItems", JSON_VERSION, body, true)
           data = Parsers.list_ops_item_related_items(json)
         end
-        Responses::ListOpsItemRelatedItems.new(data, request_context(body))
+        Responses::ListOpsItemRelatedItems.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_ops_item_related_items_error_data(e.code, e.body))
       end
@@ -1930,7 +1930,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListOpsMetadata", JSON_VERSION, body, true)
           data = Parsers.list_ops_metadata(json)
         end
-        Responses::ListOpsMetadata.new(data, request_context(body))
+        Responses::ListOpsMetadata.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_ops_metadata_error_data(e.code, e.body))
       end
@@ -1946,7 +1946,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListResourceComplianceSummaries", JSON_VERSION, body, true)
           data = Parsers.list_resource_compliance_summaries(json)
         end
-        Responses::ListResourceComplianceSummaries.new(data, request_context(body))
+        Responses::ListResourceComplianceSummaries.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_resource_compliance_summaries_error_data(e.code, e.body))
       end
@@ -1962,7 +1962,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ListResourceDataSync", JSON_VERSION, body, true)
           data = Parsers.list_resource_data_sync(json)
         end
-        Responses::ListResourceDataSync.new(data, request_context(body))
+        Responses::ListResourceDataSync.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.list_resource_data_sync_error_data(e.code, e.body))
       end
@@ -2602,7 +2602,7 @@ module Aws
           json = stub ? stub_json(stub, body) : send_json("#{TARGET_PREFIX}.ValidateCloudConnector", JSON_VERSION, body, true)
           data = Parsers.validate_cloud_connector(json)
         end
-        Responses::ValidateCloudConnector.new(data, request_context(body))
+        Responses::ValidateCloudConnector.new(data, request_context(body), self, params)
       rescue Aws::Runtime::ErrorResponse => e
         raise Errors.error(e.code, e.context, e.message, Parsers.validate_cloud_connector_error_data(e.code, e.body))
       end
@@ -2733,6 +2733,14 @@ module Aws
       class DescribeActivations < Seahorse::Client::Response
         def activation_list = data.activation_list
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_activations(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeAssociation < Seahorse::Client::Response
@@ -2742,26 +2750,66 @@ module Aws
       class DescribeAssociationExecutionTargets < Seahorse::Client::Response
         def association_execution_targets = data.association_execution_targets
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_association_execution_targets(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeAssociationExecutions < Seahorse::Client::Response
         def association_executions = data.association_executions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_association_executions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeAutomationExecutions < Seahorse::Client::Response
         def automation_execution_metadata_list = data.automation_execution_metadata_list
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_automation_executions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeAutomationStepExecutions < Seahorse::Client::Response
         def step_executions = data.step_executions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_automation_step_executions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeAvailablePatches < Seahorse::Client::Response
         def patches = data.patches
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_available_patches(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeDocument < Seahorse::Client::Response
@@ -2777,101 +2825,261 @@ module Aws
       class DescribeEffectiveInstanceAssociations < Seahorse::Client::Response
         def associations = data.associations
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_effective_instance_associations(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeEffectivePatchesForPatchBaseline < Seahorse::Client::Response
         def effective_patches = data.effective_patches
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_effective_patches_for_patch_baseline(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeInstanceAssociationsStatus < Seahorse::Client::Response
         def instance_association_status_infos = data.instance_association_status_infos
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_instance_associations_status(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeInstanceInformation < Seahorse::Client::Response
         def instance_information_list = data.instance_information_list
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_instance_information(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeInstancePatchStates < Seahorse::Client::Response
         def instance_patch_states = data.instance_patch_states
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_instance_patch_states(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeInstancePatchStatesForPatchGroup < Seahorse::Client::Response
         def instance_patch_states = data.instance_patch_states
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_instance_patch_states_for_patch_group(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeInstancePatches < Seahorse::Client::Response
         def patches = data.patches
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_instance_patches(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeInstanceProperties < Seahorse::Client::Response
         def instance_properties = data.instance_properties
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_instance_properties(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeInventoryDeletions < Seahorse::Client::Response
         def inventory_deletions = data.inventory_deletions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_inventory_deletions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindowExecutionTaskInvocations < Seahorse::Client::Response
         def window_execution_task_invocation_identities = data.window_execution_task_invocation_identities
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_window_execution_task_invocations(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindowExecutionTasks < Seahorse::Client::Response
         def window_execution_task_identities = data.window_execution_task_identities
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_window_execution_tasks(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindowExecutions < Seahorse::Client::Response
         def window_executions = data.window_executions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_window_executions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindowSchedule < Seahorse::Client::Response
         def scheduled_window_executions = data.scheduled_window_executions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_window_schedule(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindowTargets < Seahorse::Client::Response
         def targets = data.targets
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_window_targets(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindowTasks < Seahorse::Client::Response
         def tasks = data.tasks
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_window_tasks(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindows < Seahorse::Client::Response
         def window_identities = data.window_identities
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_windows(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeMaintenanceWindowsForTarget < Seahorse::Client::Response
         def window_identities = data.window_identities
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_maintenance_windows_for_target(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeOpsItems < Seahorse::Client::Response
         def next_token = data.next_token
         def ops_item_summaries = data.ops_item_summaries
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_ops_items(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeParameters < Seahorse::Client::Response
         def parameters = data.parameters
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_parameters(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribePatchBaselines < Seahorse::Client::Response
         def baseline_identities = data.baseline_identities
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_patch_baselines(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribePatchGroupState < Seahorse::Client::Response
@@ -2893,16 +3101,40 @@ module Aws
       class DescribePatchGroups < Seahorse::Client::Response
         def mappings = data.mappings
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_patch_groups(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribePatchProperties < Seahorse::Client::Response
         def properties = data.properties
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_patch_properties(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DescribeSessions < Seahorse::Client::Response
         def sessions = data.sessions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.describe_sessions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class DisassociateOpsItemRelatedItem < Seahorse::Client::Response
@@ -2998,11 +3230,27 @@ module Aws
       class GetInventory < Seahorse::Client::Response
         def entities = data.entities
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.get_inventory(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class GetInventorySchema < Seahorse::Client::Response
         def schemas = data.schemas
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.get_inventory_schema(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class GetMaintenanceWindow < Seahorse::Client::Response
@@ -3097,6 +3345,14 @@ module Aws
       class GetOpsSummary < Seahorse::Client::Response
         def entities = data.entities
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.get_ops_summary(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class GetParameter < Seahorse::Client::Response
@@ -3106,6 +3362,14 @@ module Aws
       class GetParameterHistory < Seahorse::Client::Response
         def parameters = data.parameters
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.get_parameter_history(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class GetParameters < Seahorse::Client::Response
@@ -3116,6 +3380,14 @@ module Aws
       class GetParametersByPath < Seahorse::Client::Response
         def parameters = data.parameters
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.get_parameters_by_path(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class GetPatchBaseline < Seahorse::Client::Response
@@ -3146,6 +3418,14 @@ module Aws
       class GetResourcePolicies < Seahorse::Client::Response
         def next_token = data.next_token
         def policies = data.policies
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.get_resource_policies(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class GetServiceSetting < Seahorse::Client::Response
@@ -3160,36 +3440,92 @@ module Aws
       class ListAssociationVersions < Seahorse::Client::Response
         def association_versions = data.association_versions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_association_versions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListAssociations < Seahorse::Client::Response
         def associations = data.associations
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_associations(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListCloudConnectors < Seahorse::Client::Response
         def cloud_connectors = data.cloud_connectors
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_cloud_connectors(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListCommandInvocations < Seahorse::Client::Response
         def command_invocations = data.command_invocations
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_command_invocations(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListCommands < Seahorse::Client::Response
         def commands = data.commands
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_commands(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListComplianceItems < Seahorse::Client::Response
         def compliance_items = data.compliance_items
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_compliance_items(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListComplianceSummaries < Seahorse::Client::Response
         def compliance_summary_items = data.compliance_summary_items
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_compliance_summaries(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListDocumentMetadataHistory < Seahorse::Client::Response
@@ -3203,11 +3539,27 @@ module Aws
       class ListDocumentVersions < Seahorse::Client::Response
         def document_versions = data.document_versions
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_document_versions(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListDocuments < Seahorse::Client::Response
         def document_identifiers = data.document_identifiers
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_documents(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListInventoryEntries < Seahorse::Client::Response
@@ -3222,36 +3574,92 @@ module Aws
       class ListNodes < Seahorse::Client::Response
         def nodes = data.nodes
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_nodes(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListNodesSummary < Seahorse::Client::Response
         def summary = data.summary
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_nodes_summary(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListOpsItemEvents < Seahorse::Client::Response
         def next_token = data.next_token
         def summaries = data.summaries
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_ops_item_events(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListOpsItemRelatedItems < Seahorse::Client::Response
         def next_token = data.next_token
         def summaries = data.summaries
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_ops_item_related_items(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListOpsMetadata < Seahorse::Client::Response
         def ops_metadata_list = data.ops_metadata_list
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_ops_metadata(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListResourceComplianceSummaries < Seahorse::Client::Response
         def resource_compliance_summary_items = data.resource_compliance_summary_items
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_resource_compliance_summaries(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListResourceDataSync < Seahorse::Client::Response
         def resource_data_sync_items = data.resource_data_sync_items
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.list_resource_data_sync(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
 
       class ListTagsForResource < Seahorse::Client::Response
@@ -3454,6 +3862,14 @@ module Aws
       class ValidateCloudConnector < Seahorse::Client::Response
         def validation_findings = data.validation_findings
         def next_token = data.next_token
+
+        def last_page? = !Aws::Runtime::Paging.truncated?(data.next_token, Aws::Runtime::Query.member(@params, :next_token))
+
+        private
+
+        def next_response(params)
+          @client.validate_cloud_connector(Aws::Runtime::Paging.next_params(@params, :next_token, data.next_token, params))
+        end
       end
     end
   end
