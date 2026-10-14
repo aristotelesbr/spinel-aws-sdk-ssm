@@ -87,7 +87,8 @@ Each test compiles the whole client, about 100 s with Spinel.
 The oracle needs [mise](https://mise.jdx.dev) with Ruby 4.0.2 and the gems
 installed once: `cd oracle && BUNDLE_GEMFILE=$PWD/Gemfile mise exec ruby@4.0.2 -- bundle install`.
 It takes this package's include paths from `spin flags`; set `SPIN` to the
-spin binary if the one on `PATH` is not current.
+spin binary if the one on `PATH` is not current, and `RUBY` to run it with
+another ruby.
 
 The tests cover:
 
@@ -106,7 +107,10 @@ The tests cover:
 - `network_test.rb`: requests, signatures, error codes and retries against
   a local server.
 
-Every `.expected` is the real gem's output. Tested with Spinel `9a121acc5`.
+Every `.expected` is the real gem's output. Tested with Spinel `165974895`.
+
+`.github/workflows/test.yml` runs both on Linux and macOS on every push
+against that Spinel revision, and every day against Spinel master.
 
 ## License
 
