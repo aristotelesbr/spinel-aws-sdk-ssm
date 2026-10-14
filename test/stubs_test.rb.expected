@@ -1,0 +1,34 @@
+get_parameter: PSParameterName ParameterType PSParameterValue 0 Time ParameterDataType
+data: Aws::SSM::Types::GetParameterResult true nil
+put_parameter: 0 ParameterTier
+get_parameters: [] []
+get_parameters_by_path: [] 
+delete_parameter: Aws::SSM::Types::DeleteParameterResult {}
+delete_parameters: [] []
+describe_parameters: [] 
+hash: /app/TOKEN s3cr3t 3 nil
+to_h: {name: "/app/TOKEN", value: "s3cr3t", version: 3}
+hash list: 1,2 /c
+sequence: 1 2 2
+error: Aws::SSM::Errors::ParameterNotFound ParameterNotFound stubbed-response-error-message
+raw: /app/TOKEN SecureString são "x" 7 arn:aws:ssm:us-east-1:123456789012:parameter/app/TOKEN text
+raw time: 1700000000 2023-11-14T22:13:20.122
+raw missing: nil nil
+empty body: nil
+raw error 400: "ParameterNotFound" Aws::SSM::Errors::ParameterNotFound "no such parameter"
+raw error 400: "ParameterVersionNotFound" Aws::SSM::Errors::ParameterVersionNotFound "capital M"
+raw error 400: "ThrottlingException" Aws::SSM::Errors::ThrottlingException "slow down"
+raw error 400: "SomethingNew" (unmodeled)
+raw error 500: "Http500Error" (unmodeled)
+raw error 503: "Http503Error" (unmodeled)
+raw error 500: "Http500Error" (unmodeled)
+body get_parameter: {"Name":"/app/TOKEN","WithDecryption":true}
+body get_parameter: {"WithDecryption":false,"Name":"/app/TOKEN"}
+body get_parameters: {"Names":["/a","/b"],"WithDecryption":true}
+body get_parameters_by_path: {"Path":"/app","Recursive":true,"MaxResults":10,"ParameterFilters":[{"Key":"Type","Option":"Equals","Values":["SecureString"]}]}
+body put_parameter: {"Name":"/app/TOKEN","Value":"s3cr3t","Type":"SecureString","Overwrite":true,"Tags":[{"Key":"team","Value":"core"}]}
+body put_parameter: {"Overwrite":false,"Type":"String","Value":"v","Name":"/b"}
+body delete_parameter: {"Name":"/app/TOKEN"}
+body delete_parameters: {"Names":["/a","/b"]}
+body describe_parameters: {}
+body describe_parameters: {"MaxResults":5,"NextToken":"t","Shared":true}

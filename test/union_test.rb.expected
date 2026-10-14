@@ -1,0 +1,21 @@
+default execution_preview: Aws::SSM::Types::ExecutionPreview::Automation :automation Aws::SSM::Types::AutomationExecutionPreview true
+default automation: 0 [] nil
+default configuration: Aws::SSM::Types::CloudConnectorConfiguration::AzureConfiguration :azure_configuration Aws::SSM::Types::AzureConfiguration true
+default azure: AzureTenantId
+default targets: Aws::SSM::Types::ConfigurationTargets::Subscriptions :subscriptions Array true
+default subscriptions: []
+list_nodes: []
+hash node_type: Aws::SSM::Types::NodeType::Instance :instance Aws::SSM::Types::InstanceInfo true
+hash instance: x 10.0.0.1
+hash to_h: {instance: {agent_type: "x", ip_address: "10.0.0.1"}}
+json n2: Aws::SSM::Types::NodeType::Instance :instance Aws::SSM::Types::InstanceInfo true
+json n2 instance: y
+json n2 unknown: name=
+json n3: Aws::SSM::Types::NodeType::Unknown :unknown Hash true
+json n3 instance: nil
+json n3 unknown: name=Future
+json n4: Aws::SSM::Types::NodeType::Unknown :unknown Hash true
+json n4 instance: nil
+json n4 unknown: name=Later
+body start_execution_preview: {"DocumentName":"d","ExecutionInputs":{"Automation":{"Parameters":{"a":["b"]},"TargetParameterName":"t"}}}
+body create_cloud_connector: {"DisplayName":"c","RoleArn":"r","ConfigConnectorArn":"cc","Configuration":{"AzureConfiguration":{"TenantId":"t","ApplicationId":"a","Targets":{"Subscriptions":[{"Id":"s1","DisplayName":"one"},{"Id":"s2"}]}}}}

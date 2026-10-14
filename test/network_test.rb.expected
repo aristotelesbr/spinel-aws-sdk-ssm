@@ -1,0 +1,23 @@
+put: 1 Standard
+get: /app/TOKEN s3cr3t 1 1700000000 arn:aws:ssm:sa-east-1:123456789012:parameter/app/TOKEN
+not found: ParameterNotFound Aws::SSM::Errors::ParameterNotFound Parameter /missing not found.
+header code: ParameterNotFound Aws::SSM::Errors::ParameterNotFound Aws::SSM::Errors::ParameterNotFound
+unmodeled: SomethingNew (unmodeled) new
+legacy retry: s3cr3t retries=1 sleeps=[0.3]
+standard retry: s3cr3t retries=2 sleeps=[0.5, 1.0]
+put: POST / HTTP/1.1
+  headers: accept accept-encoding amz-sdk-invocation-id authorization content-length content-type host x-amz-content-sha256 x-amz-date x-amz-target
+  content-type: application/x-amz-json-1.1
+  x-amz-target: AmazonSSM.PutParameter
+  authorization: AWS4-HMAC-SHA256 Credential=AKID/DATE/sa-east-1/ssm/aws4_request, SignedHeaders=amz-sdk-invocation-id;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=SIG
+  body: {"Name":"/app/TOKEN","Value":"s3cr3t","Type":"SecureString","Overwrite":true}
+  signature valid: true
+get: POST / HTTP/1.1
+  headers: accept accept-encoding amz-sdk-invocation-id authorization content-length content-type host x-amz-content-sha256 x-amz-date x-amz-target
+  content-type: application/x-amz-json-1.1
+  x-amz-target: AmazonSSM.GetParameter
+  authorization: AWS4-HMAC-SHA256 Credential=AKID/DATE/sa-east-1/ssm/aws4_request, SignedHeaders=amz-sdk-invocation-id;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=SIG
+  body: {"Name":"/app/TOKEN","WithDecryption":true}
+  signature valid: true
+retried: AmazonSSM.GetParameter {"Name":"/app/TOKEN"}
+standard attempts: attempt=1; max=3 | attempt=2; max=3 | attempt=3; max=3
