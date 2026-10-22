@@ -107,7 +107,7 @@ The tests cover:
 - `network_test.rb`: requests, signatures, error codes and retries against
   a local server.
 
-Every `.expected` is the real gem's output. Tested with Spinel `165974895`.
+Every `.expected` is the real gem's output. Tested with Spinel `89100bf0f`.
 
 `.github/workflows/test.yml` runs both on Linux and macOS on every push
 against that Spinel revision. `.github/workflows/spinel-master.yml` runs the
